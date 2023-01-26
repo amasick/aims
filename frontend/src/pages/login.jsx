@@ -2,19 +2,18 @@ import { useState, useEffect } from 'react'
 // import { useSelector, useDispatch } from 'react-redux'
 // import { useNavigate } from 'react-router-dom'
 // import { toast } from 'react-toastify'
-import { FaUser } from 'react-icons/fa'
+import { FaSignInAlt } from 'react-icons/fa'
 // import { register, reset } from '../features/auth/authSlice'
 // import Spinner from '../components/Spinner'
 
-function Register() {
+function Login() {
   const [formData, setFormData] = useState({
-    role:'',
-    name: '',
+    role: '',
+    email: '',
     password: '',
-    password2: '',
   })
 
-  const { name, email,role, password, password2 } = formData
+  const { role, email,  password } = formData
 
   // const navigate = useNavigate()
   // const dispatch = useDispatch()
@@ -66,31 +65,22 @@ function Register() {
     <>
       <section className='heading'>
         <h1>
-          <FaUser /> Register
+          <FaSignInAlt /> Login
         </h1>
-        <p>Please create an account</p>
+        <p>Please add your login info</p>
       </section>
 
       <section className='form'>
         <form onSubmit={onSubmit}>
+          
         <div className='form-group'>
-        <select>
-  <option selected value="student">student</option>
-  <option value="faculty">faculty</option>
-  <option value="advisor">advisor</option>
 
-</select>
-          </div>
-          <div className='form-group'>
-            <input
-              type='text'
-              className='form-control'
-              id='name'
-              name='name'
-              value={name}
-              placeholder='Enter your name'
-              onChange={onChange}
-            />
+        <select value={role} onChange={onChange}>
+        <option value="student">student</option>
+        <option value="faculty">faculty</option>
+        <option value="advisor">advisor</option>
+      </select>
+  
           </div>
           <div className='form-group'>
             <input
@@ -103,6 +93,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
+      
           <div className='form-group'>
             <input
               type='password'
@@ -114,17 +105,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password2'
-              name='password2'
-              value={password2}
-              placeholder='Confirm password'
-              onChange={onChange}
-            />
-          </div>
+        
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
               Submit
@@ -136,4 +117,4 @@ function Register() {
   )
 }
 
-export default Register
+export default Login

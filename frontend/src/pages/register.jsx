@@ -74,13 +74,14 @@ function Register() {
 
       <section className='form'>
         <form onSubmit={onSubmit}>
+          
         <div className='form-group'>
 
-        <select >
-  <option selected value="student">student</option>
-  <option value="faculty">faculty</option>
-  <option value="advisor">advisor</option>
-  </select>
+        <select value={role} onChange={onChange}>
+        <option value="student">student</option>
+        <option value="faculty">faculty</option>
+        <option value="advisor">advisor</option>
+      </select>
   
           </div>
           <div className='form-group'>
