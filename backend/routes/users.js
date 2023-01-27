@@ -11,8 +11,10 @@ router.use(bodyParser.urlencoded({extended:false}));
   router.post("", userctrl.useradd);
   router.post("/login", userctrl.userLogin);
 
-  router.get("/student/profile",protect.protectstu, userctrl.liststu);
-  router.get("/faculty/profile",protect.protectfac, userctrl.listfac);
+  router.get("/student/list",protect.protectstu, userctrl.liststu);
+  router.get("/faculty/list",protect.protectfac, userctrl.listfac);
+router.delete("/student/:id",protect.protectstu,userctrl.deletestu);
+router.delete("/faculty/:id",protect.protectfac,userctrl.deletefac);
 
 
   router.post("/student/add",protect.protectstu, userctrl.studentAdd);

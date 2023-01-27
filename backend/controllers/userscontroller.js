@@ -8,73 +8,80 @@ const bcrypt = require("bcryptjs");
 // const asynchandler=require("express-async-handler");
 
 const liststu = async (req, res) => {
-  let user = await students.findById(req.user.id);
-  res.json(user);
+  // let user = await students.findById(req.user.id);
+  res.json(req.user);
 };
 
 const listfac = async (req, res) => {
-  let user = await faculty.findById(req.user.id);
-  res.json(user);
+  // let user = await faculty.findById(req.user.id);
+  res.json(req.user);
 };
 
 const userLogin = async (req, res) => {
   if (req.body.role == "student") {
+
     const user = await students.findOne({ email: req.body.email });
+  console.log(user);
+
     if (user && (await bcrypt.compare(req.body.password, user.password))) {
       let data = user;
+      console.log(user);
       res.json({
+        role:"student",
         _id: data._id,
         name: data.name,
         email: data.email,
         token: generateToken(data._id),
       });
     } else {
-      res.send("invalid credentials");
+      res.status(400).send("invalid credentials");
     }
   } else {
     const user = await faculty.findOne({ email: req.body.email });
     if (user && (await bcrypt.compare(req.body.password, user.password))) {
       let data = user;
       res.json({
+        role:"faculty",
         _id: data._id,
         name: data.name,
         email: data.email,
         token: generateToken(data._id),
       });
     } else {
-      res.send("invalid credentials");
+      res.status(400).send("invalid credentials");
     }
   }
 };
 
 const useradd = async (req, res) => {
   console.log(req.body);
-  // if(req.body.role=="student"){
-  //    let user=await students.findOne({email:req.body.email});
-  // if(!user){
+  if(req.body.role=="student"){
+     let user=await students.findOne({email:req.body.email});
+  if(!user){
 
-  //    let stname=req.body.name;
-  //    let stemail=req.body.email;
-  //    let stpassword=req.body.password;
-  //    const salt=await bcrypt.genSalt(10);
-  //    const hashedpassword=await bcrypt.hash(stpassword,salt);
-  //     let data = new students ({name:stname,email:stemail,password:hashedpassword});
-  //     let response=await data.save();
+     let stname=req.body.name;
+     let stemail=req.body.email;
+     let stpassword=req.body.password;
+     const salt=await bcrypt.genSalt(10);
+     const hashedpassword=await bcrypt.hash(stpassword,salt);
+      let data = new students ({name:stname,email:stemail,password:hashedpassword});
+      let response=await data.save();
 
-  //    res.json({
-  //     _id:data._id,
-  //     name: data.name,
-  //     email: data.email,
-  //     token: generateToken(data._id)
-  //    })
+     res.json({
+      _id:data._id,
+      role:"student",
+      name: data.name,
+      email: data.email,
+      token: generateToken(data._id)
+     })
 
-  res.sendFile(__dirname + "/student.html");
-  // }
-  // else{
-  //   res.send("user already exists");
-  // }
-  // console.log(user);
-  // }
+  // res.sendFile(__dirname + "/student.html");
+  }
+  else{
+    res.status(400).send("user already exists");
+  }
+  console.log(user);
+  }
 
   if (req.body.role == "faculty") {
     let user = await faculty.findOne({ email: req.body.email });
@@ -91,14 +98,15 @@ const useradd = async (req, res) => {
       });
       let response = await data.save();
       res.json({
+      role:"faculty",
         _id: data._id,
         name: data.name,
         email: data.email,
         token: generateToken(data._id),
       });
-      res.sendFile(__dirname + "/faclulty.html");
+      // res.sendFile(__dirname + "/faclulty.html");
     } else {
-      res.send("user already exists");
+      res.status(400).send("user already exists");
     }
     // console.log("faculty", user);
   }
@@ -140,6 +148,8 @@ const courseadd = async (req, res) => {
     console.log(data);
   }
 };
+
+
 
 const facapproval = async (req, res) => {
   let sub = req.body.subject;
@@ -191,11 +201,65 @@ const advapproval = async (req, res) => {
   }
 };
 
+const deletestu = async (req, res) => {
+  const goal = await record.findById(req.params.id)
+
+  if (!goal) {
+    res.status(400)
+    throw new Error('Goal not found')
+  }
+
+  // Check for user
+  if (!req.user) {
+    res.status(401)
+    throw new Error('User not found')
+  }
+
+  // Make sure the logged in user matches the goal user
+  if (goal.st_email !== req.user.email) {
+    res.status(401)
+    throw new Error('User not authorized')
+  }
+
+  await goal.remove()
+
+  res.status(200).json({ id: req.params.id })
+};
+
+
+
+const deletefac =async (req, res) => {
+  const goal = await record.findById(req.params.id)
+
+  if (!goal) {
+    res.status(400)
+    throw new Error('Goal not found')
+  }
+
+  // Check for user
+  if (!req.user) {
+    res.status(401)
+    throw new Error('User not found')
+  }
+
+  // Make sure the logged in user matches the goal user
+  if (goal.prof_email !== req.user.email) {
+    res.status(401)
+    throw new Error('User not authorized')
+  }
+
+  await goal.remove()
+
+  res.status(200).json({ id: req.params.id })
+}
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
 module.exports = {
+  deletestu,
+  deletefac,
   liststu,
   listfac,
   studentAdd,
