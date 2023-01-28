@@ -1,10 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import studentService from "./studentService";
+import facService from "./facService";
 
 const initialState = {
-  courses: [],
-  // subject: null,
-  offers: [],
+  requests: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -18,7 +16,7 @@ export const addCourse = createAsyncThunk(
     try {
       const token = thunkAPI.getState().auth.user.token;
       console.log({subjectdata,token});
-      return await studentService.addCourse(subjectdata, token);
+      return await facService.addCourse(subjectdata, token);
     } catch (error) {
       const message =
         (error.response &&
@@ -31,13 +29,13 @@ export const addCourse = createAsyncThunk(
   }
 );
 
-// Get user courses
+// Get prof courses
 export const getCourses = createAsyncThunk(
   "courses/getAll",
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await studentService.getCourses(token);
+      return await facService.getCourses(token);
     } catch (error) {
       const message =
         (error.response &&
@@ -56,7 +54,7 @@ export const getSubjects = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await studentService.getSubjects(token);
+      return await facService.getSubjects(token);
     } catch (error) {
       const message =
         (error.response &&
@@ -75,7 +73,7 @@ export const deleteCourse = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await studentService.deleteCourse(id, token);
+      return await facService.deleteCourse(id, token);
     } catch (error) {
       const message =
         (error.response &&
@@ -88,7 +86,27 @@ export const deleteCourse = createAsyncThunk(
   }
 );
 
-export const studentSlice = createSlice({
+export const approve = createAsyncThunk(
+    "course/delete",
+    async (val, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await facService.approve(val, token);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+  );
+
+ 
+
+export const facSlice = createSlice({
   name: "course",
   initialState,
   reducers: {
@@ -102,7 +120,6 @@ export const studentSlice = createSlice({
       .addCase(addCourse.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.subject = action.payload;
       })
       .addCase(addCourse.rejected, (state, action) => {
         state.isLoading = false;
@@ -149,9 +166,22 @@ export const studentSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
+      })
+      .addCase(approve.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(approve.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.offers = action.payload;
+      })
+      .addCase(approve.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
       });
   },
 });
 
-export const { reset } = studentSlice.actions;
-export default studentSlice.reducer;
+export const { reset } = facSlice.actions;
+export default facSlice.reducer;

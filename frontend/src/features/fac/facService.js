@@ -11,14 +11,12 @@ const addCourse = async (subjectdata, token) => {
   };
 
   // console.log({ subjectname, email });
-  console.log(subjectdata);
-const data={
-  subject: subjectdata.subname,
-  email:subjectdata.email
-}
+//   console.log(subjectdata);
+
+
   const response = await axios.post(
-    API_URL + "student/add",
-   data,
+    API_URL + "facluty/add",
+   subjectdata,
     config
   );
 
@@ -33,7 +31,7 @@ const getCourses = async (token) => {
     },
   };
 
-  const response = await axios.get(API_URL + "student/list", config);
+  const response = await axios.get(API_URL + "faculty/list", config);
 
   return response.data;
 };
@@ -46,7 +44,7 @@ const getSubjects = async (token) => {
     },
   };
 
-  const response = await axios.get(API_URL + "student/courses/list", config);
+  const response = await axios.get(API_URL + "faculty/courses/list", config);
 
   return response.data;
 };
@@ -59,16 +57,26 @@ const deleteCourse = async (courseId, token) => {
     },
   };
 
-  const response = await axios.delete(API_URL + "student/" + courseId, config);
+  const response = await axios.delete(API_URL + "faculty/" + courseId, config);
 
   return response.data;
 };
+const approve =async (recorddata,token)=>{
+    const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post(API_URL + "faculty/approval" , config);
 
-const studenService = {
+      return response.data;
+}
+const facService = {
   addCourse,
   getCourses,
   deleteCourse,
   getSubjects,
+  approve,
 };
 
-export default studenService;
+export default facService;

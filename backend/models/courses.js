@@ -1,23 +1,19 @@
-
 const mongoose = require("mongoose");
 
 // const conn = require("../config/db");
 
-
-
 var courseschema = new mongoose.Schema(
   {
     sub_name: {
-        type:String,
+      type: String,
     },
     name: {
-      type:String
+      type: String,
+    },
+    email: {
+      type: String,
+    },
   },
-  email:{
-    type:String
-  }
-    
-},
   {
     timestamps: true,
   }

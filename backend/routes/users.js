@@ -12,9 +12,13 @@ router.use(bodyParser.urlencoded({extended:false}));
   router.post("/login", userctrl.userLogin);
 
   router.get("/student/list",protect.protectstu, userctrl.liststu);
-  router.get("/faculty/list",protect.protectfac, userctrl.listfac);
+  router.get("/faculty/list",protect.protectfac, userctrl.listcoursesfac);
 router.delete("/student/:id",protect.protectstu,userctrl.deletestu);
 router.delete("/faculty/:id",protect.protectfac,userctrl.deletefac);
+
+router.get("/student/courses/list",protect.protectstu, userctrl.listcourses);
+router.get("/faculty/courses/list",protect.protectfac, userctrl.listsubjects);
+
 
 
   router.post("/student/add",protect.protectstu, userctrl.studentAdd);

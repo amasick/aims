@@ -3,39 +3,48 @@ import { FaPlus } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-// import addcourse from '../components/addcourse'
-// import courseitem from '../components/courseitem'
-// import Spinner from "../components/Spinner";
-// import { getCourses, reset } from '../features/student/studentSlice'
+import CourseItem from "../components/CourseItem";
+import SubjectItem from "../components/SubjectItem";
+
+import Spinner from "../components/Spinner";
+import {
+  getCourses,
+  getSubjects,
+  reset,
+} from "../features/student/studentSlice";
 
 function Dashboard() {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  // const { course, isLoading, isError, message } = useSelector(
-  //   (state) => course.goals
-  // )
+  const { courses, offers, isLoading, isError, message } = useSelector(
+    (state) => state.courses
+  );
+  // const subjects = useSelector((state) => state.subjects);
 
-  // useEffect(() => {
-  //   // if (isError) {
-  //   //   console.log(message)
-  //   // }
+  // console.log(offers);
 
-  //   if (!user) {
-  //     navigate('/login')
-  //   }
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
 
-  //   // dispatch(getGoals())
+    if (!user) {
+      navigate("/login");
+    }
+    dispatch(getSubjects());
 
-  //   // return () => {
-  //   //   dispatch(reset())
-  //   // }
-  // }, [user, navigate])
+    dispatch(getCourses());
 
-  // if (isLoading) {
-  //   return <Spinner />
-  // }
+    return () => {
+      dispatch(reset());
+    };
+  }, [user, navigate, isError, message, dispatch]);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
@@ -44,22 +53,34 @@ function Dashboard() {
           <div>
             <section className="heading">
               <h1>Welcome {user && user.name}</h1>
-              <p>Courses Dashboard</p>
+              <p>Your Courses</p>
             </section>
-            <div>
-              <ul>
-                <Link to="/add">
-                  <button>
-                    <FaPlus /> Add Courses
-                  </button>
-                </Link>
-              </ul>
-            </div>
 
-            {/* <h1>Add Courses</h1> */}
-
-            <h1>Your Courses</h1>
-
+            <section className="content enrollments">
+              {courses.length > 0 ? (
+                <div className="goals">
+                  {courses.map((course) => (
+                    <CourseItem key={course._id} course={course} />
+                  ))}
+                </div>
+              ) : (
+                <h3>You are not enrolled in any courses</h3>
+              )}
+            </section>
+            <section className="heading">
+              <p>Offered Courses</p>
+            </section>
+            <section className="content offers">
+              {offers.length > 0 ? (
+                <div className="goals">
+                  {offers.map((offer) => (
+                    <SubjectItem key={offer._id} offer={offer} />
+                  ))}
+                </div>
+              ) : (
+                <h3>no courses are available for enrollments</h3>
+              )}
+            </section>
           </div>
         </div>
       ) : (

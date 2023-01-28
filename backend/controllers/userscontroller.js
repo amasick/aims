@@ -8,15 +8,29 @@ const bcrypt = require("bcryptjs");
 // const asynchandler=require("express-async-handler");
 
 const liststu = async (req, res) => {
-  // let user = await students.findById(req.user.id);
-  res.json(req.user);
+  let user = await record.find({st_email:req.user.email});
+  // console.log(user);
+  res.json(user);
 };
 
 const listfac = async (req, res) => {
-  // let user = await faculty.findById(req.user.id);
-  res.json(req.user);
+  let user = await record.find({prof_email: req.user.email});
+  res.json(user);
 };
+const listcourses = async (req,res)=>{
+  let data= await course.find();
+  res.json(data);
+}
 
+const listsubjects = async (req,res)=>{
+  let data= await subject.find();
+  res.json(data);
+}
+
+const listcoursesfac = async (req,res)=>{
+  let data= await course.find({email: req.user.email});
+  res.json(data);
+}
 const userLogin = async (req, res) => {
   if (req.body.role == "student") {
 
@@ -54,7 +68,7 @@ const userLogin = async (req, res) => {
 };
 
 const useradd = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   if(req.body.role=="student"){
      let user=await students.findOne({email:req.body.email});
   if(!user){
@@ -80,7 +94,7 @@ const useradd = async (req, res) => {
   else{
     res.status(400).send("user already exists");
   }
-  console.log(user);
+  // console.log(user);
   }
 
   if (req.body.role == "faculty") {
@@ -115,10 +129,14 @@ const useradd = async (req, res) => {
 };
 
 const studentAdd = async (req, res) => {
+console.log("mkc");
+
+console.log(req.body);
+
   let sub = req.body.subject;
   let stu_mail = req.user.email;
   let a = await course.findOne({ sub_name: String(sub) });
-
+console.log(a);
   if (a) {
     let prof_mail = a.email;
     let data = new record({
@@ -128,24 +146,24 @@ const studentAdd = async (req, res) => {
       status: "pending instructor approval",
     });
     let response = await data.save();
-    console.log(data);
+    // console.log(data);
   } else {
     console.log("course not available");
   }
 };
 
 const courseadd = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   let sub = req.body.subject;
   let prof_name = req.user.name;
   let prof_mail = req.user.email;
   let a = await subject.findOne({ name: String(sub) });
-  console.log(a);
+  // console.log(a);
   if (a) {
     let data = new course({ sub_name: sub, name: prof_name, email: prof_mail });
     let response = await data.save();
     subject.deleteOne({ name: String(sub) }, function (err, obj) {});
-    console.log(data);
+    // console.log(data);
   }
 };
 
@@ -162,7 +180,7 @@ const facapproval = async (req, res) => {
     prof_email: prof_mail,
     subject: sub,
   });
-  console.log(a);
+  // console.log(a);
   if (a) {
     if (resp == "1") {
       a.status = "pending advisor approval";
@@ -229,7 +247,7 @@ const deletestu = async (req, res) => {
 
 
 const deletefac =async (req, res) => {
-  const goal = await record.findById(req.params.id)
+  const goal = await course.findById(req.params.id)
 
   if (!goal) {
     res.status(400)
@@ -259,6 +277,9 @@ const generateToken = (id) => {
 
 module.exports = {
   deletestu,
+  listsubjects,
+  listcoursesfac,
+  listcourses,
   deletefac,
   liststu,
   listfac,
