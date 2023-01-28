@@ -17,12 +17,15 @@ router.delete("/student/:id",protect.protectstu,userctrl.deletestu);
 router.delete("/faculty/:id",protect.protectfac,userctrl.deletefac);
 
 router.get("/student/courses/list",protect.protectstu, userctrl.listcourses);
-router.get("/faculty/courses/list",protect.protectfac, userctrl.listsubjects);
+router.get("/faculty/subjects/list",protect.protectfac, userctrl.listsubjects);
+router.get("/faculty/requests",protect.protectfac, userctrl.facrequests);
+
 
 
 
   router.post("/student/add",protect.protectstu, userctrl.studentAdd);
   router.post("/faculty/add",protect.protectfac, userctrl.courseadd);
+
   router.post("/faculty/approval",protect.protectfac, userctrl.facapproval);
   router.post("/advisor/approval", userctrl.advapproval);
 

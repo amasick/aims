@@ -1,19 +1,18 @@
 import { useDispatch } from "react-redux";
-import { addCourse } from "../features/student/studentSlice";
+import { addfacCourse } from "../features/student/studentSlice";
 import { FaPlus } from "react-icons/fa";
 
-function SubjectItem({ offer }) {
+function FacsubjectItem({ facsubject }) {
   const dispatch = useDispatch();
 
   return (
     <div className="goal">
       {/* <div>{new Date(course.createdAt).toLocaleString('en-US')}</div> */}
-      <h2>{offer.sub_name}</h2>
-      <h2>Intructor: {offer.name}</h2>
+      <h2>{facsubject.name}</h2>
 
       <button
         onClick={() =>
-          dispatch(addCourse({ subname: offer.sub_name, email: offer.email }))
+          dispatch(addfacCourse({ subname: facsubject.name }))
         }
         className="close"
         style={{ backgroundColor: "#abdbe3" }}
@@ -24,4 +23,4 @@ function SubjectItem({ offer }) {
   );
 }
 
-export default SubjectItem;
+export default FacsubjectItem;

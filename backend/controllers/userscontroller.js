@@ -13,6 +13,12 @@ const liststu = async (req, res) => {
   res.json(user);
 };
 
+const facrequests = async (req, res) => {
+  let user = await record.find({prof_email:req.user.email});
+  console.log(user);
+  res.json(user);
+};
+
 const listfac = async (req, res) => {
   let user = await record.find({prof_email: req.user.email});
   res.json(user);
@@ -153,7 +159,7 @@ console.log(a);
 };
 
 const courseadd = async (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
   let sub = req.body.subject;
   let prof_name = req.user.name;
   let prof_mail = req.user.email;
@@ -162,7 +168,7 @@ const courseadd = async (req, res) => {
   if (a) {
     let data = new course({ sub_name: sub, name: prof_name, email: prof_mail });
     let response = await data.save();
-    subject.deleteOne({ name: String(sub) }, function (err, obj) {});
+    // subject.deleteOne({ name: String(sub) }, function (err, obj) {});
     // console.log(data);
   }
 };
@@ -278,6 +284,7 @@ const generateToken = (id) => {
 module.exports = {
   deletestu,
   listsubjects,
+  facrequests,
   listcoursesfac,
   listcourses,
   deletefac,
