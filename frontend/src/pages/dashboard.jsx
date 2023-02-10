@@ -51,7 +51,7 @@ function Dashboard() {
       dispatch(getfacSubjects());
   
       dispatch(getfacCourses());
-      dispatch(getfacRequests());
+      // dispatch(getfacRequests());
       // dispatch(getfacRequests());
 
 
