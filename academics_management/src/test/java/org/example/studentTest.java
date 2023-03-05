@@ -21,7 +21,7 @@ class studentTest {
     @BeforeAll
     @Test
     void login() {
-        assertTrue(stu.login("2020csb2@iitrpr.ac.in","iitropar"));
+        assertTrue(stu.login("2020csb0@iitrpr.ac.in","iitropar"));
 
     }
     @AfterAll
@@ -39,7 +39,22 @@ class studentTest {
     void updateprofile() {
         assertTrue(stu.updateprofile("dummy","iitropar","1234567890"));
     }
+     @Test
+     void offeredcourses(){
+        admin y=new admin();
+        if(admin.viewsemester().equals("no sem is running")){
+            assertEquals(stu.offeredCourses(),"no courses offered yet");
 
+        }
+        else{
+            y.endsem();
+        }
+
+        y.startsem("2020","monsoon");
+        y.updatecoursecatalog("CS301");
+        assertNotEquals(stu.offeredCourses(),"no course is offered yet");
+        y.endsem();
+     }
     @Test
     void addCoursewhencgpalessthanlimit() {
 
@@ -57,8 +72,8 @@ class studentTest {
        // when more than two sems but cgpa less than 5
         try {
             stmt=conn.createStatement();
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS301','A','winter','2019')");
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS302','A','monsoon','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS301','A','winter','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS302','A','monsoon','2019')");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -67,7 +82,7 @@ class studentTest {
         y.logout();
         z.endsem();
         try {
-         stmt.executeUpdate("delete from grades where student_id='2020csb2'");
+         stmt.executeUpdate("delete from grades where student_id='2020csb0'");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -93,8 +108,8 @@ class studentTest {
         y.addCourse("DM112","1");
         try {
             stmt=conn.createStatement();
-//            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS301','A','winter','2019')");
-//            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS302','A','monsoon','2019')");
+//            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS301','A','winter','2019')");
+//            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS302','A','monsoon','2019')");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -126,8 +141,8 @@ class studentTest {
         y.addCourse("DM112","1");
         try {
             stmt=conn.createStatement();
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','DM111','A','winter','2019')");
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS302','A','monsoon','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','DM111','A','winter','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS302','A','monsoon','2019')");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -137,7 +152,7 @@ class studentTest {
         z.deletecourse("DM112");
         y.logout();
         try {
-            stmt.executeUpdate("delete from grades where student_id='2020csb2'");
+            stmt.executeUpdate("delete from grades where student_id='2020csb0'");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -166,6 +181,7 @@ class studentTest {
     }
     @Test
     void mycourses() {
+
 if(admin.viewsemester().equals("no sem is running")){
    assertEquals(stu.mycourses(),"error");
 }
@@ -193,8 +209,8 @@ else{
         assertEquals(stu.showGrades(),"No grades to show yet");
         try {
             stmt=conn.createStatement();
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','DM111','A','winter','2019')");
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS302','A','monsoon','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','DM111','A','winter','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS302','A','monsoon','2019')");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -202,7 +218,7 @@ else{
         assertNotEquals(stu.showGrades(),"no grades to show yet");
         try {
             stmt=conn.createStatement();
-            stmt.executeUpdate("delete from grades where student_id='2020csb2'");
+            stmt.executeUpdate("delete from grades where student_id='2020csb0'");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -214,8 +230,8 @@ else{
         assertEquals(stu.getcgpa(), 0.0);
         try {
             stmt = conn.createStatement();
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS301','A','winter','2019')");
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','CS302','A','monsoon','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS301','A','winter','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS302','A','monsoon','2019')");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -223,7 +239,7 @@ else{
         assertEquals(stu.getcgpa(),2.857142857142857);
         try {
             stmt=conn.createStatement();
-            stmt.executeUpdate("delete from grades where student_id='2020csb2'");
+            stmt.executeUpdate("delete from grades where student_id='2020csb0'");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -232,49 +248,124 @@ else{
 
     @Test
     void gradcheck() {
-        assertFalse(stu.gradcheck());
+        try {
+            stmt= conn.createStatement();
+            stmt.executeUpdate("delete from ug_curriculum");
+            stmt.executeUpdate("delete from grades where student_id='2020csb0';");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        //when core courses not completed
+        admin y=new admin();
            admin x=new admin();
-           x.addbatch("2010csb","2010","CS");
-           x.addcurriculum("DM111","core","2010csb");
 
-        List<String> data=new ArrayList<String>();
-        data.add("dm");
-        data.add("2010csb");
-        data.add("9327223367");
+        try {
+            y.addcurriculum("CS456","core","2020csb");
+            stmt = conn.createStatement();
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS456','A','winter','2020')");
 
-        x.adduser("1",data);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        //when elective completed is less than two
+        assertEquals(stu.gradcheck(),"you have not completed 2  electives");
+
         try {
             stmt = conn.createStatement();
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2010csb0','HS0','DM111','A','winter','2010')");
+            y.addcurriculum("EE345","elective","2020csb");
+            y.addcurriculum("HS104","elective","2020csb");
+
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','EE345','A','winter','2020')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','HS104','A','winter','2020')");
+
 
         } catch (SQLException e) {
             System.out.println(e);
-            System.out.println("f");
         }
-        student f=new student();
-        f.login("2010csb0@iitrpr.ac.in","iitropar");
-        assertTrue(f.gradcheck());
-        f.logout();
+        assertEquals(stu.gradcheck(),"you have not completed capstone yet");
+// when total core credits less than 70
+        System.out.println("ggs");
         try {
-            stmt.executeUpdate("delete from grades where student_id='2010csb0'");
-            stmt.executeUpdate("delete from ug_curriculum where course_id='DM111'");
-            x.deleteuser("1","2010csb0");
-            stmt.executeUpdate("delete from batch where id='2010csb'");
+            stmt = conn.createStatement();
+            y.addcurriculum("CP302","capstone","2020csb");
+            y.addcurriculum("CP303","capstone","2020csb");
+
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CP302','A','winter','2020')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CP303','A','winter','2020')");
+
 
         } catch (SQLException e) {
             System.out.println(e);
-            System.out.println("ff");
+        }
+        assertEquals(stu.gradcheck(),"program core credits less than 70");
+
+        // when total engineering credits less than 30
+        try {
+            stmt = conn.createStatement();
+            y.addcurriculum("CS301","core","2020csb");
+
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS301','A','winter','2020')");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        assertEquals(stu.gradcheck(),"engineering core credits less than 30");
+
+        // when total elective credits less than 35
+        try {
+            stmt = conn.createStatement();
+            y.addcurriculum("GE444","general engineering","2020csb");
+
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','GE444','A','winter','2020')");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        assertEquals(stu.gradcheck(),"open elective credits less than 35");
+
+        // when total elective credits less than 35
+        try {
+            stmt = conn.createStatement();
+            y.addcurriculum("GE108","elective","2020csb");
+
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','GE108','A','winter','2020')");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        assertEquals(stu.gradcheck(),"total credits less than 140");
+
+        // when all conditions satisfied
+        try {
+            stmt = conn.createStatement();
+            y.addcurriculum("CS505","program elective","2020csb");
+
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS505','A','winter','2020')");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        assertEquals(stu.gradcheck(),"eligible for graduation");
+
+
+        try {
+            stmt.executeUpdate("delete from grades where student_id='2020csb0';");
+
+        } catch (SQLException e) {
+            System.out.println(e);
         }
 
     }
+
 
     @Test
     void islessthantwo() {
         assertTrue(stu.islessthantwo());
         try {
             stmt = conn.createStatement();
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','DM111','A','winter','2010')");
-            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb2','HS0','DM111','A','winter','2011')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','DM111','A','winter','2010')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','DM111','A','winter','2011')");
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -283,7 +374,7 @@ else{
         assertFalse(stu.islessthantwo());
 
         try {
-            stmt.executeUpdate("delete from grades where student_id='2020csb2'");
+            stmt.executeUpdate("delete from grades where student_id='2020csb0'");
 
         } catch (SQLException e) {
             System.out.println(e);

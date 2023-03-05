@@ -5,10 +5,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class instructorTest {
+    static Connection conn = Connect.ConnectDB();
+    static Statement stmt = null;
 instructor x=new instructor();
     @BeforeAll
     @Test
@@ -104,6 +110,14 @@ y.startsem("2030","monsoon");
 
     @Test
     void showGrades() {
+        try {
+            stmt= conn.createStatement();
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS301','A','winter','2020');");
+            assertTrue(x.showGrades());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         assertTrue(x.showGrades());
     }
 
@@ -165,11 +179,40 @@ y.startsem("2030","monsoon");
             y.endsem();
 
         }
+        y.startsem("2020","monsoon");
+        y.updatecoursecatalog("CS301");
+        x.addCourse("CS301","0");
+        student a=new student();
+        student b=new student();
+a.login("2020csb0@iitrpr.ac.in","iitropar");
+a.addCourse("CS301");
+a.logout();
+        b.login("2020eeb0@iitrpr.ac.in","iitropar");
+        b.addCourse("CS301");
+        b.logout();
+        assertTrue(x.approveordissaprove("CS301","2020csb0","1"));
+        assertTrue(x.approveordissaprove("CS301","2020eeb0","1"));
+        try {
+            stmt=conn.createStatement();
+            String query="delete from grades where instructor_id='HS0';";
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+//checking different corner cases
         assertFalse(x.submitgrades("gradeswithoneless"));
         assertFalse(x.submitgrades("gradeswithonemore"));
-
-        y.startsem("2020","monsoon");
+//
         assertTrue(x.submitgrades("grades"));
+
         y.endsem();
+
+        try {
+            stmt=conn.createStatement();
+            String query="delete from grades where instructor_id='HS0';";
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

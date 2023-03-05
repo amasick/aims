@@ -30,6 +30,7 @@ class adminTest {
 
     @Test
     void addbatch() {
+        x.deletebatch("2010csb");
         boolean f=x.addbatch("2010csb","2010","CS");
         assertTrue(f);
         x.deletebatch("2010csb");

@@ -167,10 +167,8 @@ stu.updateprofile(name,password,phone_number);
                                 break;
                             }
                             case "9": {
-                                if(stu.gradcheck())
-                                    System.out.println("eligible for graduation");
-                                    else
-                                    System.out.println("not eligible for graduation");
+                                String s=stu.gradcheck();
+                               System.out.println(s);
                                 System.out.println("press any key to continue");
                                 input.nextLine();
                                 break;

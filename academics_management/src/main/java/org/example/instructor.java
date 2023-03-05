@@ -222,8 +222,6 @@ return true;
                     }
                     if(f.equals(""))
                     {
-
-
                         query="insert into course_offering(course_id,cgpa_limit,instructor_id) values ('"+course_id+"',"+cgpa_limit+",'"+user_id+"');";
                         stmt.executeUpdate(query);
                         System.out.println(" course offered successfully");
@@ -550,30 +548,34 @@ count++;
             return false;
         }
 
-        String query="select * from registration_status where course_id='"+cd+"';";
+        String query="select student_id from registration_status where instructor_id='"+user_id+"' and course_id='"+cd+"' and status='approved by the instructor';";
+        String query2="select student_id from grades where instructor_id='"+user_id+"' and course_id='"+cd+"';";
+        String query3="delete from grades where instructor_id='"+user_id+"' and course_id='"+cd+"';";
+
+
+
         try {
             stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
-            while(rs.next()){
-                String sid=rs.getString(2);
-                query="select * from grades where student_id='"+sid+"' and course_id='"+cd+"';";
-//                System.out.println(query);
-                ResultSet rs1=stmt.executeQuery(query);
-                int f=0;
-                while(rs1.next())f++;
-                if(f==0){
-                    System.out.println("no grade has been submitted for student with id "+sid);
-                    query="delete from grades where instructor_id='"+user_id+"' and course_id='"+cd+"';";
-                    stmt.executeUpdate(query);
-                    return false;
-                } else if (f>1) {
-                    System.out.println("more than 1  grade has been submitted for student with id "+sid);
-                    query="delete from grades where instructor_id='"+user_id+"' and course_id='"+cd+"';";
-                    stmt.executeUpdate(query);
-                    return false;
+            int f1=0,f2=0;
+            while(rs.next())f1++;
+            rs=stmt.executeQuery(query2);
+            while(rs.next())f2++;
+            System.out.println(f2 + " " + f1);
+            int d=f2-f1;
+            System.out.println(d);
 
-                }
+            if(d>0){
+                System.out.println("grade file has more grade entries than students registered for the course");
+                stmt.executeUpdate(query3);
+                return false;
             }
+            if(d<0){
+                System.out.println("grade file has les grade entries than students registered for the course");
+                stmt.executeUpdate(query3);
+                return false;
+            }
+
         } catch (SQLException e) {
 //            throw new RuntimeException(e);
             System.out.println(e);

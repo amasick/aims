@@ -35,7 +35,8 @@ CREATE TABLE ug_curriculum(
 course_id VARCHAR(10),
 batch_id VARCHAR(10),
 course_type VARCHAR(100),
-FOREIGN KEY (course_id) references course (id)
+FOREIGN KEY (course_id) references course (id),
+PRIMARY KEY (course_id,batch_id)
 );
 
 CREATE TABLE course_catalog(
@@ -136,3 +137,9 @@ select grades.course_id
 from grades
 where grades.grade!='F' and grades.student_id=user_id;
 
+
+cs456 68
+ee345 30
+hs104 3
+cp302 3
+cp303 3

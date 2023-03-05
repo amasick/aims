@@ -480,7 +480,7 @@ System.out.println(e);
         return cgpa;
     }
 
-    public boolean gradcheck(){
+    public String gradcheck(){
         // checking if all program cores are completed
 String query="\n" +
         "select ug_curriculum.course_id\n" +
@@ -494,7 +494,7 @@ String query="\n" +
         String q1="select * from ug_curriculum, grades where ug_curriculum.course_id=grades.course_id and ug_curriculum.course_type='elective' and grades.grade!='F';";
 
         // if capstone is completed there will be 2 entries in grade table if the student completes 2 BTP in 2 sem
-        String q2="select * from grades where grades.course_id='BTP' and grades.grade!='F';";
+        String q2="select * from grades where (grades.course_id='CP302' or grades.course_id='CP303') and grades.grade!='F';";
         try {
             stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
@@ -508,34 +508,66 @@ String query="\n" +
 //            System.out.println(responsequery);
 
             if(f>0){
-                System.out.println("you have not completes all core courses yet");
-return false;
+                return"you have not completed all core courses yet";
             }
 
             rs=stmt.executeQuery(q1);
             f=0;
             while(rs.next())f++;
             if(f<2) {
-                System.out.println("you have not completed 2 program electives");
-                return false;
+                return "you have not completed 2  electives";
             }
-
+f=0;
             rs=stmt.executeQuery(q2);
             while(rs.next())f++;
-            if(f!=2) {
-                System.out.println("you have not completed capstone yet");
-                return false;
-            }
-            return true;
 
+            if(f!=2) {
+                return "you have not completed capstone yet";
+            }
 
         } catch (SQLException e) {
 //            throw new RuntimeException(e);
             System.out.println(e);
-            return false;
         }
 
+        int program_credits=0,engineering_credits=0,elective_credits=0;
+        String query1="select c from course,ug_curriculum,grades where course.id=grades.course_id and ug_curriculum.course_id=course.id and  (ug_curriculum.course_type='core' or ug_curriculum.course_type='program elective') and grades.grade!='F' and grades.student_id='"+user_id+"';";
+        String query2="select c from course,ug_curriculum,grades where course.id=grades.course_id and ug_curriculum.course_id=course.id and  ug_curriculum.course_type='general engineering' and grades.grade!='F' and grades.student_id='"+user_id+"';";
+        String query3="select c from course,ug_curriculum,grades where course.id=grades.course_id and ug_curriculum.course_id=course.id and  ug_curriculum.course_type='elective' and grades.grade!='F' and grades.student_id='"+user_id+"';";
+        try {
+            stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query1);
+            while(rs.next())program_credits+=rs.getInt(1);
+             rs=stmt.executeQuery(query2);
+            while(rs.next())engineering_credits+=rs.getInt(1);
 
+            rs=stmt.executeQuery(query3);
+            while(rs.next())elective_credits+=rs.getInt(1);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        // total credits>120
+
+        // program core credits >=60
+        if(program_credits<70){
+            return "program core credits less than 70";
+        }
+        // engineering core >=30
+
+        if(engineering_credits<30){
+            return "engineering core credits less than 30";
+        }
+
+        // electives >=30
+        if(elective_credits<35){
+            return  "open elective credits less than 35";
+        }
+System.out.println(program_credits+engineering_credits+elective_credits);
+        if(program_credits+engineering_credits+elective_credits<140){
+            return "total credits less than 140";
+        }
+return "eligible for graduation";
     }
 
 
