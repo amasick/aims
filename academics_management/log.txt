@@ -1,0 +1,727 @@
+student 2020csb2 logged in on 2023/02/20 18:07:47
+student 2020csb2 logged out on 2023/02/20 18:16:13
+instructor CS1 logged in on 2023/02/20 18:16:59
+instrcutor CS1 logged out on 2023/02/20 18:17:56
+instrcutor CS1 logged out on 2023/02/20 18:20:52
+instrcutor CS1 logged out on 2023/02/20 18:21:25
+instructor CS1 logged out on 2023/02/20 18:23:11
+instructor CS1 logged out on 2023/02/20 18:24:20
+instructor CS1 logged in on 2023/02/20 18:24:48
+instructor CS1 logged out on 2023/02/20 18:24:55
+admin  logged in on 2023/02/20 18:25:37
+admin  logged out on 2023/02/20 18:44:02
+student 2020csb1 logged in on 2023/02/20 18:51:07
+student 2020csb1 logged out on 2023/02/20 18:51:56
+instructor CS1 logged in on 2023/02/20 18:52:22
+instructor CS1 logged out on 2023/02/20 19:35:40
+student 2020csb1 logged in on 2023/02/20 19:36:48
+student 2020csb1 logged out on 2023/02/20 19:52:29
+instructor CS1 logged in on 2023/02/20 19:53:52
+instructor CS1 logged out on 2023/02/20 19:54:08
+student 2020csb1 logged in on 2023/02/20 19:54:19
+admin  logged in on 2023/02/21 13:21:47
+admin  logged in on 2023/02/21 13:21:47
+admin  logged in on 2023/02/21 13:22:33
+admin  logged in on 2023/02/21 13:22:33
+admin  logged in on 2023/02/21 13:25:24
+admin  logged out on 2023/02/21 13:25:24
+admin  logged in on 2023/02/21 13:36:25
+admin  logged in on 2023/02/21 13:38:17
+admin  logged in on 2023/02/21 13:40:26
+admin  logged in on 2023/02/21 13:41:24
+admin  logged in on 2023/02/21 13:42:52
+admin  logged in on 2023/02/21 13:43:00
+admin  logged in on 2023/02/21 13:43:28
+admin  logged in on 2023/02/21 13:43:59
+admin  logged in on 2023/02/21 13:44:51
+admin  logged out on 2023/02/21 13:44:51
+admin  logged in on 2023/02/21 13:59:41
+admin  logged out on 2023/02/21 13:59:41
+admin  logged in on 2023/02/21 14:13:22
+admin  logged out on 2023/02/21 14:13:23
+admin  logged in on 2023/02/21 14:15:34
+admin  logged out on 2023/02/21 14:15:34
+admin  logged in on 2023/02/21 14:30:59
+admin  logged out on 2023/02/21 14:30:59
+admin  logged in on 2023/02/21 17:32:31
+admin  logged out on 2023/02/21 17:32:32
+admin  logged in on 2023/02/21 17:33:06
+admin  logged out on 2023/02/21 17:33:06
+admin  logged in on 2023/02/21 17:33:06
+admin  logged out on 2023/02/21 17:33:06
+admin  logged in on 2023/02/21 17:34:16
+admin  logged out on 2023/02/21 17:34:16
+admin  logged in on 2023/02/21 17:34:16
+admin  logged out on 2023/02/21 17:34:16
+admin  logged in on 2023/02/21 17:39:30
+admin  logged out on 2023/02/21 17:39:30
+admin  logged in on 2023/02/21 17:39:30
+admin  logged out on 2023/02/21 17:39:30
+admin  logged in on 2023/02/21 17:41:29
+admin  logged out on 2023/02/21 17:41:29
+admin  logged in on 2023/02/21 17:41:29
+admin  logged out on 2023/02/21 17:41:29
+admin  logged in on 2023/02/21 17:42:11
+admin  logged out on 2023/02/21 17:42:11
+admin  logged in on 2023/02/21 17:42:11
+admin  logged out on 2023/02/21 17:42:11
+admin  logged in on 2023/02/21 21:08:32
+admin  logged out on 2023/02/21 21:08:32
+admin  logged in on 2023/02/21 21:08:32
+admin  logged out on 2023/02/21 21:08:32
+student 2020csb1 logged out on 2023/02/21 21:13:09
+student 2020csb1 logged in on 2023/02/21 21:15:49
+student 2020csb1 logged out on 2023/02/21 21:16:06
+student 2020csb1 logged in on 2023/02/21 21:18:49
+student 2020csb1 logged out on 2023/02/21 21:18:52
+student 2020csb1 logged in on 2023/02/21 21:21:37
+student 2020csb1 logged out on 2023/02/21 21:21:58
+admin  logged in on 2023/02/21 21:22:50
+admin  logged in on 2023/02/22 00:28:23
+admin  logged out on 2023/02/22 00:28:23
+admin  logged in on 2023/02/22 00:29:43
+admin  logged out on 2023/02/22 00:29:44
+admin  logged in on 2023/02/22 00:30:20
+admin  logged out on 2023/02/22 00:30:21
+admin  logged in on 2023/02/22 00:31:21
+admin  logged out on 2023/02/22 00:31:21
+admin  logged in on 2023/02/22 00:31:58
+admin  logged out on 2023/02/22 00:31:58
+admin  logged in on 2023/02/22 00:34:00
+admin  logged out on 2023/02/22 00:34:01
+admin  logged in on 2023/02/22 01:28:26
+admin  logged out on 2023/02/22 01:28:26
+admin  logged in on 2023/02/22 01:28:31
+admin  logged out on 2023/02/22 01:28:32
+admin  logged in on 2023/02/22 01:33:37
+admin  logged out on 2023/02/22 01:33:37
+admin  logged in on 2023/02/22 01:34:19
+admin  logged out on 2023/02/22 01:34:19
+admin  logged in on 2023/02/22 01:34:30
+admin  logged out on 2023/02/22 01:34:30
+admin  logged in on 2023/02/22 01:34:30
+admin  logged out on 2023/02/22 01:34:30
+admin  logged in on 2023/02/22 01:35:51
+admin  logged out on 2023/02/22 01:35:51
+admin  logged in on 2023/02/22 01:35:51
+admin  logged out on 2023/02/22 01:35:51
+admin  logged in on 2023/02/22 01:38:40
+admin  logged out on 2023/02/22 01:38:41
+admin  logged in on 2023/02/22 01:38:41
+admin  logged out on 2023/02/22 01:38:41
+admin  logged in on 2023/02/22 13:14:06
+admin  logged out on 2023/02/22 13:14:07
+admin  logged in on 2023/02/22 13:14:07
+admin  logged out on 2023/02/22 13:14:07
+admin  logged in on 2023/02/22 13:15:07
+admin  logged out on 2023/02/22 13:15:07
+admin  logged in on 2023/02/22 13:15:07
+admin  logged out on 2023/02/22 13:15:07
+instructor HS0 logged in on 2023/02/22 13:23:11
+instructor HS0 logged out on 2023/02/22 13:23:11
+instructor HS0 logged in on 2023/02/22 13:23:11
+instructor HS0 logged out on 2023/02/22 13:23:11
+instructor HS0 logged in on 2023/02/22 14:09:53
+instructor HS0 logged out on 2023/02/22 14:09:53
+instructor HS0 logged in on 2023/02/22 14:14:26
+instructor HS0 logged out on 2023/02/22 14:14:26
+instructor HS0 logged in on 2023/02/22 16:33:35
+instructor HS0 logged out on 2023/02/22 16:33:35
+instructor HS0 logged in on 2023/02/22 16:34:24
+instructor HS0 logged out on 2023/02/22 16:34:24
+instructor HS0 logged in on 2023/02/22 17:09:57
+instructor HS0 logged out on 2023/02/22 17:09:57
+instructor HS0 logged in on 2023/02/22 17:41:42
+instructor HS0 logged out on 2023/02/22 17:41:42
+instructor HS0 logged in on 2023/02/22 17:44:59
+instructor HS0 logged out on 2023/02/22 17:44:59
+instructor HS0 logged in on 2023/02/22 17:47:22
+instructor HS0 logged out on 2023/02/22 17:47:23
+instructor HS0 logged in on 2023/02/23 01:20:45
+instructor HS0 logged out on 2023/02/23 01:20:45
+instructor HS0 logged in on 2023/02/23 01:20:45
+instructor HS0 logged out on 2023/02/23 01:20:46
+student 2020csb2 logged in on 2023/02/23 12:47:02
+student 2020csb2 logged out on 2023/02/23 12:47:02
+student 2020csb2 logged in on 2023/02/23 12:47:02
+student 2020csb2 logged out on 2023/02/23 12:47:02
+student 2020csb2 logged in on 2023/02/23 12:49:16
+student 2020csb2 logged out on 2023/02/23 12:49:16
+student 2020csb2 logged out on 2023/02/23 12:49:16
+student 2020csb2 logged in on 2023/02/23 12:51:48
+student 2020csb2 logged out on 2023/02/23 12:51:48
+student 2020csb2 logged in on 2023/02/23 12:52:28
+student 2020csb2 logged out on 2023/02/23 12:52:28
+student 2020csb2 logged in on 2023/02/23 12:54:08
+student 2020csb2 logged out on 2023/02/23 12:54:08
+student 2020csb2 logged in on 2023/02/23 13:47:49
+instructor HS0 logged in on 2023/02/23 13:47:49
+instructor HS0 logged out on 2023/02/23 13:47:50
+student 2020csb2 logged out on 2023/02/23 13:47:50
+student 2020csb2 logged in on 2023/02/23 13:50:48
+instructor HS0 logged in on 2023/02/23 13:50:48
+instructor HS0 logged out on 2023/02/23 13:50:48
+student 2020csb2 logged out on 2023/02/23 13:50:48
+student 2020csb2 logged in on 2023/02/23 13:52:39
+instructor HS0 logged in on 2023/02/23 13:52:40
+instructor HS0 logged out on 2023/02/23 13:52:40
+student 2020csb2 logged out on 2023/02/23 13:52:40
+student 2020csb2 logged in on 2023/02/23 13:53:31
+instructor HS0 logged in on 2023/02/23 13:53:31
+instructor HS0 logged out on 2023/02/23 13:53:31
+student 2020csb2 logged out on 2023/02/23 13:53:31
+student 2020csb2 logged in on 2023/02/23 13:54:56
+instructor HS0 logged in on 2023/02/23 13:54:57
+instructor HS0 logged out on 2023/02/23 13:54:57
+student 2020csb2 logged out on 2023/02/23 13:54:57
+student 2020csb2 logged in on 2023/02/23 13:56:11
+instructor HS0 logged in on 2023/02/23 13:56:12
+instructor HS0 logged out on 2023/02/23 13:56:12
+student 2020csb2 logged out on 2023/02/23 13:56:12
+student 2020csb2 logged in on 2023/02/23 13:57:15
+instructor HS0 logged in on 2023/02/23 13:57:15
+instructor HS0 logged out on 2023/02/23 13:57:15
+student 2020csb2 logged out on 2023/02/23 13:57:15
+student 2020csb2 logged in on 2023/02/23 13:58:06
+instructor HS0 logged in on 2023/02/23 13:58:06
+instructor HS0 logged out on 2023/02/23 13:58:06
+student 2020csb2 logged out on 2023/02/23 13:58:07
+student 2020csb2 logged in on 2023/02/23 13:59:08
+instructor HS0 logged in on 2023/02/23 13:59:09
+instructor HS0 logged out on 2023/02/23 13:59:09
+student 2020csb2 logged out on 2023/02/23 13:59:09
+student 2020csb2 logged in on 2023/02/23 14:00:05
+instructor HS0 logged in on 2023/02/23 14:00:05
+instructor HS0 logged out on 2023/02/23 14:00:05
+student 2020csb2 logged out on 2023/02/23 14:00:05
+student 2020csb2 logged in on 2023/02/23 14:04:03
+instructor HS0 logged in on 2023/02/23 14:04:04
+instructor HS0 logged out on 2023/02/23 14:04:04
+student 2020csb2 logged out on 2023/02/23 14:04:04
+student 2020csb2 logged in on 2023/02/23 14:06:17
+instructor HS0 logged in on 2023/02/23 14:06:17
+instructor HS0 logged out on 2023/02/23 14:06:17
+student 2020csb2 logged out on 2023/02/23 14:06:17
+student 2020csb2 logged in on 2023/02/23 14:07:38
+instructor HS0 logged in on 2023/02/23 14:07:39
+instructor HS0 logged out on 2023/02/23 14:07:39
+student 2020csb2 logged out on 2023/02/23 14:07:39
+student 2020csb2 logged in on 2023/02/23 14:09:42
+instructor HS0 logged in on 2023/02/23 14:09:42
+instructor HS0 logged out on 2023/02/23 14:09:42
+student 2020csb2 logged out on 2023/02/23 14:09:42
+student 2020csb2 logged in on 2023/02/23 14:11:43
+instructor HS0 logged in on 2023/02/23 14:11:43
+instructor HS0 logged out on 2023/02/23 14:11:43
+student 2020csb2 logged out on 2023/02/23 14:11:43
+student 2020csb2 logged in on 2023/02/23 14:13:32
+instructor HS0 logged in on 2023/02/23 14:13:33
+instructor HS0 logged out on 2023/02/23 14:13:33
+student 2020csb2 logged out on 2023/02/23 14:13:33
+student 2020csb2 logged in on 2023/02/23 14:20:41
+instructor HS0 logged in on 2023/02/23 14:20:42
+instructor HS0 logged out on 2023/02/23 14:20:42
+student 2020csb2 logged out on 2023/02/23 14:20:42
+student 2020csb2 logged in on 2023/02/23 14:21:00
+instructor HS0 logged in on 2023/02/23 14:21:00
+instructor HS0 logged out on 2023/02/23 14:21:00
+student 2020csb2 logged out on 2023/02/23 14:21:00
+student 2020csb2 logged in on 2023/02/23 14:22:07
+instructor HS0 logged in on 2023/02/23 14:22:07
+instructor HS0 logged out on 2023/02/23 14:22:07
+student 2020csb2 logged out on 2023/02/23 14:22:07
+student 2020csb2 logged in on 2023/02/23 14:22:58
+instructor HS0 logged in on 2023/02/23 14:22:59
+instructor HS0 logged out on 2023/02/23 14:22:59
+student 2020csb2 logged out on 2023/02/23 14:22:59
+student 2020csb2 logged in on 2023/02/23 14:23:18
+instructor HS0 logged in on 2023/02/23 14:23:18
+instructor HS0 logged out on 2023/02/23 14:23:19
+student 2020csb2 logged out on 2023/02/23 14:23:19
+student 2020csb2 logged in on 2023/02/23 14:28:23
+instructor HS0 logged in on 2023/02/23 14:28:24
+instructor HS0 logged out on 2023/02/23 14:28:24
+student 2020csb2 logged out on 2023/02/23 14:28:24
+student 2020csb2 logged in on 2023/02/23 14:29:03
+instructor HS0 logged in on 2023/02/23 14:29:04
+instructor HS0 logged out on 2023/02/23 14:29:04
+student 2020csb2 logged out on 2023/02/23 14:29:04
+student 2020csb2 logged in on 2023/02/23 14:29:53
+instructor HS0 logged in on 2023/02/23 14:29:53
+instructor HS0 logged out on 2023/02/23 14:29:53
+student 2020csb2 logged out on 2023/02/23 14:29:53
+student 2020csb2 logged in on 2023/02/23 14:30:20
+instructor HS0 logged in on 2023/02/23 14:30:21
+instructor HS0 logged out on 2023/02/23 14:30:21
+student 2020csb2 logged out on 2023/02/23 14:30:21
+student 2020csb2 logged in on 2023/02/23 14:31:06
+instructor HS0 logged in on 2023/02/23 14:31:06
+instructor HS0 logged out on 2023/02/23 14:31:06
+student 2020csb2 logged out on 2023/02/23 14:31:06
+student 2020csb2 logged in on 2023/02/23 14:31:24
+instructor HS0 logged in on 2023/02/23 14:31:25
+instructor HS0 logged out on 2023/02/23 14:31:25
+student 2020csb2 logged out on 2023/02/23 14:31:25
+student 2020csb2 logged in on 2023/02/23 14:32:58
+instructor HS0 logged in on 2023/02/23 14:32:58
+instructor HS0 logged out on 2023/02/23 14:32:59
+student 2020csb2 logged out on 2023/02/23 14:32:59
+student 2020csb2 logged in on 2023/02/23 14:33:16
+instructor HS0 logged in on 2023/02/23 14:33:16
+instructor HS0 logged out on 2023/02/23 14:33:16
+student 2020csb2 logged out on 2023/02/23 14:33:16
+student 2020csb2 logged in on 2023/02/23 16:49:33
+instructor HS0 logged in on 2023/02/23 16:49:33
+instructor HS0 logged out on 2023/02/23 16:49:33
+student 2020csb2 logged out on 2023/02/23 16:49:33
+student 2020csb2 logged in on 2023/02/23 16:49:54
+instructor HS0 logged in on 2023/02/23 16:49:55
+instructor HS0 logged out on 2023/02/23 16:49:55
+student 2020csb2 logged out on 2023/02/23 16:49:55
+student 2020csb2 logged in on 2023/02/23 16:50:56
+instructor HS0 logged in on 2023/02/23 16:50:56
+instructor HS0 logged out on 2023/02/23 16:50:56
+student 2020csb2 logged out on 2023/02/23 16:50:56
+student 2020csb2 logged in on 2023/02/23 16:52:52
+instructor HS0 logged in on 2023/02/23 16:52:53
+instructor HS0 logged out on 2023/02/23 16:52:53
+student 2020csb2 logged out on 2023/02/23 16:52:53
+student 2020csb2 logged in on 2023/02/23 16:53:14
+instructor HS0 logged in on 2023/02/23 16:53:14
+instructor HS0 logged out on 2023/02/23 16:53:14
+student 2020csb2 logged out on 2023/02/23 16:53:14
+student 2020csb2 logged in on 2023/02/23 16:54:17
+instructor HS0 logged in on 2023/02/23 16:54:18
+instructor HS0 logged out on 2023/02/23 16:54:18
+student 2020csb2 logged out on 2023/02/23 16:54:18
+student 2020csb2 logged in on 2023/02/23 16:54:57
+instructor HS0 logged in on 2023/02/23 16:54:57
+student 2020csb2 logged out on 2023/02/23 16:54:57
+student 2020csb2 logged in on 2023/02/23 16:58:25
+instructor HS0 logged in on 2023/02/23 16:58:26
+instructor HS0 logged out on 2023/02/23 16:58:26
+student 2020csb2 logged out on 2023/02/23 16:58:26
+student 2020csb2 logged in on 2023/02/23 17:02:27
+instructor HS0 logged in on 2023/02/23 17:02:28
+instructor HS0 logged out on 2023/02/23 17:02:28
+student 2020csb2 logged out on 2023/02/23 17:02:28
+student 2020csb2 logged in on 2023/02/23 17:05:20
+instructor HS0 logged in on 2023/02/23 17:05:21
+instructor HS0 logged out on 2023/02/23 17:05:21
+student 2020csb2 logged out on 2023/02/23 17:05:21
+student 2020csb2 logged in on 2023/02/23 19:40:53
+student 2020csb2 logged out on 2023/02/23 19:40:53
+student 2020csb2 logged in on 2023/02/23 19:41:37
+student 2020csb2 logged out on 2023/02/23 19:41:37
+student 2020csb2 logged in on 2023/02/23 19:42:34
+student 2020csb2 logged in on 2023/02/23 19:42:47
+student 2020csb2 logged out on 2023/02/23 19:42:47
+student 2020csb2 logged in on 2023/02/23 19:42:56
+student 2020csb2 logged out on 2023/02/23 19:42:56
+student 2020csb2 logged in on 2023/02/23 19:44:31
+student 2020csb2 logged out on 2023/02/23 19:44:31
+student 2020csb2 logged in on 2023/02/23 19:44:55
+student 2020csb2 logged out on 2023/02/23 19:44:55
+student 2020csb2 logged in on 2023/02/23 19:45:12
+student 2020csb2 logged out on 2023/02/23 19:45:12
+student 2020csb2 logged in on 2023/02/23 20:01:34
+student 2010csb0 logged in on 2023/02/23 20:01:34
+student 2020csb2 logged out on 2023/02/23 20:01:34
+student 2020csb2 logged in on 2023/02/23 20:06:56
+student 2010csb0 logged in on 2023/02/23 20:06:56
+student 2020csb2 logged out on 2023/02/23 20:06:56
+student 2020csb2 logged in on 2023/02/23 20:08:21
+student 2010csb0 logged in on 2023/02/23 20:08:22
+student 2020csb2 logged out on 2023/02/23 20:08:22
+student 2020csb2 logged in on 2023/02/23 20:12:37
+student 2010csb0 logged in on 2023/02/23 20:12:37
+student 2020csb2 logged out on 2023/02/23 20:12:37
+student 2020csb2 logged in on 2023/02/23 20:13:56
+student 2010csb0 logged in on 2023/02/23 20:13:57
+student 2020csb2 logged out on 2023/02/23 20:13:57
+student 2020csb2 logged in on 2023/02/23 20:15:07
+student 2010csb0 logged in on 2023/02/23 20:15:07
+student 2010csb0 logged out on 2023/02/23 20:15:07
+student 2020csb2 logged out on 2023/02/23 20:15:07
+student 2020csb2 logged in on 2023/02/23 20:19:30
+student 2010csb0 logged in on 2023/02/23 20:19:31
+student 2010csb0 logged out on 2023/02/23 20:19:31
+student 2020csb2 logged out on 2023/02/23 20:19:31
+student 2020csb2 logged in on 2023/02/23 20:20:31
+student 2010csb0 logged in on 2023/02/23 20:20:32
+student 2010csb0 logged out on 2023/02/23 20:20:32
+student 2020csb2 logged out on 2023/02/23 20:20:32
+student 2020csb2 logged in on 2023/02/23 20:22:14
+student 2020csb2 logged out on 2023/02/23 20:22:14
+student 2020csb2 logged in on 2023/02/23 20:22:46
+student 2020csb2 logged out on 2023/02/23 20:22:46
+student 2020csb2 logged in on 2023/02/23 20:22:54
+student 2020csb2 logged out on 2023/02/23 20:22:54
+student 2020csb2 logged in on 2023/02/23 20:23:38
+student 2010csb0 logged in on 2023/02/23 20:23:38
+student 2010csb0 logged out on 2023/02/23 20:23:38
+student 2020csb2 logged out on 2023/02/23 20:23:38
+instructor HS0 logged in on 2023/02/23 20:23:38
+instructor HS0 logged out on 2023/02/23 20:23:38
+student 2020csb2 logged in on 2023/02/23 20:23:38
+instructor HS0 logged in on 2023/02/23 20:23:39
+instructor HS0 logged out on 2023/02/23 20:23:39
+instructor HS0 logged in on 2023/02/23 20:23:39
+instructor HS0 logged out on 2023/02/23 20:23:39
+instructor HS0 logged in on 2023/02/23 20:23:39
+instructor HS0 logged out on 2023/02/23 20:23:39
+student 2020csb2 logged out on 2023/02/23 20:23:39
+admin  logged in on 2023/02/23 22:57:52
+admin  logged out on 2023/02/23 22:57:52
+admin  logged in on 2023/02/23 22:58:35
+admin  logged out on 2023/02/23 22:58:35
+admin  logged in on 2023/02/23 23:00:45
+admin  logged out on 2023/02/23 23:00:45
+admin  logged in on 2023/02/23 23:02:04
+admin  logged out on 2023/02/23 23:02:04
+admin  logged in on 2023/02/23 23:02:32
+admin  logged out on 2023/02/23 23:02:32
+admin  logged in on 2023/02/23 23:04:17
+admin  logged out on 2023/02/23 23:04:17
+admin  logged in on 2023/02/23 23:04:42
+admin  logged out on 2023/02/23 23:04:43
+admin  logged in on 2023/02/23 23:05:34
+admin  logged out on 2023/02/23 23:05:34
+admin  logged in on 2023/02/23 23:06:22
+admin  logged out on 2023/02/23 23:06:22
+admin  logged in on 2023/02/23 23:16:12
+admin  logged out on 2023/02/23 23:16:13
+admin  logged in on 2023/02/23 23:16:13
+admin  logged out on 2023/02/23 23:16:13
+admin  logged in on 2023/02/23 23:17:33
+admin  logged out on 2023/02/23 23:17:33
+admin  logged in on 2023/02/23 23:17:33
+admin  logged out on 2023/02/23 23:17:33
+instructor HS0 logged in on 2023/02/23 23:17:33
+instructor HS0 logged out on 2023/02/23 23:17:33
+instructor HS0 logged in on 2023/02/23 23:17:33
+instructor HS0 logged out on 2023/02/23 23:17:33
+student 2020csb2 logged in on 2023/02/23 23:17:34
+student 2010csb0 logged in on 2023/02/23 23:17:34
+student 2010csb0 logged out on 2023/02/23 23:17:34
+instructor HS0 logged in on 2023/02/23 23:17:34
+student 2020csb2 logged out on 2023/02/23 23:17:34
+instructor HS0 logged in on 2023/02/23 23:17:34
+instructor HS0 logged out on 2023/02/23 23:17:34
+student 2020csb2 logged in on 2023/02/23 23:17:34
+instructor HS0 logged in on 2023/02/23 23:17:34
+instructor HS0 logged out on 2023/02/23 23:17:34
+instructor HS0 logged in on 2023/02/23 23:17:34
+instructor HS0 logged out on 2023/02/23 23:17:34
+instructor HS0 logged in on 2023/02/23 23:17:34
+instructor HS0 logged out on 2023/02/23 23:17:34
+student 2020csb2 logged out on 2023/02/23 23:17:34
+admin  logged in on 2023/02/23 23:17:54
+admin  logged out on 2023/02/23 23:17:54
+admin  logged in on 2023/02/23 23:17:54
+admin  logged out on 2023/02/23 23:17:54
+instructor HS0 logged in on 2023/02/23 23:18:03
+instructor HS0 logged out on 2023/02/23 23:18:03
+instructor HS0 logged in on 2023/02/23 23:18:03
+instructor HS0 logged out on 2023/02/23 23:18:03
+instructor HS0 logged in on 2023/02/23 23:18:21
+instructor HS0 logged out on 2023/02/23 23:18:21
+instructor HS0 logged in on 2023/02/23 23:18:28
+instructor HS0 logged out on 2023/02/23 23:18:28
+instructor HS0 logged in on 2023/02/23 23:27:48
+instructor HS0 logged out on 2023/02/23 23:27:48
+instructor HS0 logged in on 2023/02/23 23:29:22
+instructor HS0 logged out on 2023/02/23 23:29:22
+instructor HS0 logged in on 2023/02/23 23:31:37
+instructor HS0 logged out on 2023/02/23 23:31:37
+instructor HS0 logged in on 2023/02/23 23:33:36
+instructor HS0 logged out on 2023/02/23 23:33:36
+instructor HS0 logged in on 2023/02/23 23:33:44
+instructor HS0 logged out on 2023/02/23 23:33:44
+instructor HS0 logged in on 2023/02/23 23:36:30
+instructor HS0 logged out on 2023/02/23 23:36:30
+instructor HS0 logged in on 2023/02/23 23:37:38
+instructor HS0 logged out on 2023/02/23 23:37:38
+instructor HS0 logged in on 2023/02/23 23:39:30
+instructor HS0 logged out on 2023/02/23 23:39:30
+instructor HS0 logged in on 2023/02/23 23:42:22
+student 2020csb2 logged in on 2023/02/23 23:42:22
+student 2020csb2 logged out on 2023/02/23 23:42:22
+instructor HS0 logged out on 2023/02/23 23:42:22
+instructor HS0 logged in on 2023/02/23 23:44:08
+student 2020csb2 logged in on 2023/02/23 23:44:09
+student 2020csb2 logged out on 2023/02/23 23:44:09
+instructor HS0 logged out on 2023/02/23 23:44:09
+instructor HS0 logged in on 2023/02/23 23:46:26
+instructor HS0 logged out on 2023/02/23 23:46:26
+instructor HS0 logged in on 2023/02/23 23:47:51
+instructor HS0 logged out on 2023/02/23 23:47:51
+admin  logged in on 2023/02/23 23:48:07
+admin  logged out on 2023/02/23 23:48:07
+admin  logged in on 2023/02/23 23:48:07
+admin  logged out on 2023/02/23 23:48:07
+instructor HS0 logged in on 2023/02/23 23:48:07
+student 2020csb2 logged in on 2023/02/23 23:48:07
+student 2020csb2 logged out on 2023/02/23 23:48:07
+instructor HS0 logged out on 2023/02/23 23:48:07
+student 2020csb2 logged in on 2023/02/23 23:48:08
+student 2020csb2 logged out on 2023/02/23 23:48:08
+instructor HS0 logged in on 2023/02/23 23:48:08
+instructor HS0 logged out on 2023/02/23 23:48:08
+student 2020csb2 logged in on 2023/02/23 23:48:08
+student 2010csb0 logged in on 2023/02/23 23:48:08
+student 2010csb0 logged out on 2023/02/23 23:48:08
+student 2020csb2 logged out on 2023/02/23 23:48:08
+instructor HS0 logged in on 2023/02/23 23:48:08
+instructor HS0 logged out on 2023/02/23 23:48:08
+student 2020csb2 logged in on 2023/02/23 23:48:08
+instructor HS0 logged in on 2023/02/23 23:48:08
+instructor HS0 logged out on 2023/02/23 23:48:08
+instructor HS0 logged in on 2023/02/23 23:48:08
+instructor HS0 logged out on 2023/02/23 23:48:08
+instructor HS0 logged in on 2023/02/23 23:48:09
+instructor HS0 logged out on 2023/02/23 23:48:09
+student 2020csb2 logged out on 2023/02/23 23:48:09
+admin  logged in on 2023/02/24 00:16:43
+admin  logged out on 2023/02/24 00:16:44
+admin  logged in on 2023/02/24 00:16:44
+admin  logged out on 2023/02/24 00:16:44
+instructor HS0 logged in on 2023/02/24 00:16:44
+student 2020csb2 logged in on 2023/02/24 00:16:44
+student 2020csb2 logged out on 2023/02/24 00:16:44
+instructor HS0 logged out on 2023/02/24 00:16:44
+student 2020csb2 logged in on 2023/02/24 00:16:45
+student 2020csb2 logged out on 2023/02/24 00:16:45
+instructor HS0 logged in on 2023/02/24 00:16:45
+instructor HS0 logged out on 2023/02/24 00:16:45
+student 2020csb2 logged in on 2023/02/24 00:16:45
+student 2010csb0 logged in on 2023/02/24 00:16:45
+student 2010csb0 logged out on 2023/02/24 00:16:45
+student 2020csb2 logged out on 2023/02/24 00:16:45
+instructor HS0 logged in on 2023/02/24 00:16:45
+instructor HS0 logged out on 2023/02/24 00:16:45
+student 2020csb2 logged in on 2023/02/24 00:16:45
+instructor HS0 logged in on 2023/02/24 00:16:45
+instructor HS0 logged out on 2023/02/24 00:16:45
+instructor HS0 logged in on 2023/02/24 00:16:45
+instructor HS0 logged out on 2023/02/24 00:16:45
+instructor HS0 logged in on 2023/02/24 00:16:46
+instructor HS0 logged out on 2023/02/24 00:16:46
+student 2020csb2 logged out on 2023/02/24 00:16:46
+admin  logged in on 2023/02/24 00:17:58
+admin  logged out on 2023/02/24 00:17:58
+admin  logged in on 2023/02/24 00:17:59
+admin  logged out on 2023/02/24 00:17:59
+instructor HS0 logged in on 2023/02/24 00:17:59
+student 2020csb2 logged in on 2023/02/24 00:17:59
+student 2020csb2 logged out on 2023/02/24 00:17:59
+instructor HS0 logged out on 2023/02/24 00:17:59
+student 2020csb2 logged in on 2023/02/24 00:17:59
+student 2020csb2 logged out on 2023/02/24 00:17:59
+instructor HS0 logged in on 2023/02/24 00:17:59
+instructor HS0 logged out on 2023/02/24 00:18:00
+student 2020csb2 logged in on 2023/02/24 00:18:00
+student 2010csb0 logged in on 2023/02/24 00:18:00
+student 2010csb0 logged out on 2023/02/24 00:18:00
+student 2020csb2 logged out on 2023/02/24 00:18:00
+instructor HS0 logged in on 2023/02/24 00:18:00
+instructor HS0 logged out on 2023/02/24 00:18:00
+student 2020csb2 logged in on 2023/02/24 00:18:00
+instructor HS0 logged in on 2023/02/24 00:18:00
+instructor HS0 logged out on 2023/02/24 00:18:00
+instructor HS0 logged in on 2023/02/24 00:18:00
+instructor HS0 logged out on 2023/02/24 00:18:00
+instructor HS0 logged in on 2023/02/24 00:18:00
+instructor HS0 logged out on 2023/02/24 00:18:00
+student 2020csb2 logged out on 2023/02/24 00:18:00
+admin  logged in on 2023/02/24 00:20:50
+admin  logged out on 2023/02/24 00:20:51
+admin  logged in on 2023/02/24 00:20:51
+admin  logged out on 2023/02/24 00:20:51
+instructor HS0 logged in on 2023/02/24 00:20:51
+student 2020csb2 logged in on 2023/02/24 00:20:51
+student 2020csb2 logged out on 2023/02/24 00:20:52
+instructor HS0 logged out on 2023/02/24 00:20:52
+student 2020csb2 logged in on 2023/02/24 00:20:52
+student 2020csb2 logged out on 2023/02/24 00:20:52
+instructor HS0 logged in on 2023/02/24 00:20:52
+instructor HS0 logged out on 2023/02/24 00:20:52
+student 2020csb2 logged in on 2023/02/24 00:20:53
+student 2010csb0 logged in on 2023/02/24 00:20:53
+student 2010csb0 logged out on 2023/02/24 00:20:53
+student 2020csb2 logged out on 2023/02/24 00:20:53
+instructor HS0 logged in on 2023/02/24 00:20:53
+instructor HS0 logged out on 2023/02/24 00:20:53
+student 2020csb2 logged in on 2023/02/24 00:20:53
+instructor HS0 logged in on 2023/02/24 00:20:53
+instructor HS0 logged out on 2023/02/24 00:20:53
+instructor HS0 logged in on 2023/02/24 00:20:53
+instructor HS0 logged out on 2023/02/24 00:20:53
+instructor HS0 logged in on 2023/02/24 00:20:53
+instructor HS0 logged out on 2023/02/24 00:20:53
+student 2020csb2 logged out on 2023/02/24 00:20:53
+admin  logged in on 2023/02/24 00:26:10
+admin  logged out on 2023/02/24 00:26:10
+admin  logged in on 2023/02/24 00:26:11
+admin  logged out on 2023/02/24 00:26:11
+instructor HS0 logged in on 2023/02/24 00:26:11
+student 2020csb2 logged in on 2023/02/24 00:26:11
+student 2020csb2 logged out on 2023/02/24 00:26:11
+instructor HS0 logged out on 2023/02/24 00:26:11
+student 2020csb2 logged in on 2023/02/24 00:26:12
+student 2020csb2 logged out on 2023/02/24 00:26:12
+instructor HS0 logged in on 2023/02/24 00:26:12
+instructor HS0 logged out on 2023/02/24 00:26:12
+student 2020csb2 logged in on 2023/02/24 00:26:12
+student 2010csb0 logged in on 2023/02/24 00:26:12
+student 2010csb0 logged out on 2023/02/24 00:26:12
+student 2020csb2 logged out on 2023/02/24 00:26:12
+instructor HS0 logged in on 2023/02/24 00:26:12
+instructor HS0 logged out on 2023/02/24 00:26:12
+student 2020csb2 logged in on 2023/02/24 00:26:12
+instructor HS0 logged in on 2023/02/24 00:26:12
+instructor HS0 logged out on 2023/02/24 00:26:12
+instructor HS0 logged in on 2023/02/24 00:26:12
+instructor HS0 logged out on 2023/02/24 00:26:12
+instructor HS0 logged in on 2023/02/24 00:26:12
+instructor HS0 logged out on 2023/02/24 00:26:12
+student 2020csb2 logged out on 2023/02/24 00:26:13
+admin  logged in on 2023/03/03 18:50:48
+admin  logged out on 2023/03/03 18:50:48
+admin  logged in on 2023/03/03 18:50:48
+admin  logged out on 2023/03/03 18:50:48
+instructor HS0 logged in on 2023/03/03 18:50:49
+student 2020csb2 logged in on 2023/03/03 18:50:49
+student 2020csb2 logged out on 2023/03/03 18:50:49
+instructor HS0 logged out on 2023/03/03 18:50:49
+student 2020csb2 logged in on 2023/03/03 18:50:49
+student 2020csb2 logged out on 2023/03/03 18:50:49
+instructor HS0 logged in on 2023/03/03 18:50:49
+instructor HS0 logged out on 2023/03/03 18:50:50
+student 2020csb2 logged in on 2023/03/03 18:50:50
+student 2010csb0 logged in on 2023/03/03 18:50:51
+student 2010csb0 logged out on 2023/03/03 18:50:51
+student 2020csb2 logged out on 2023/03/03 18:50:51
+instructor HS0 logged in on 2023/03/03 18:50:51
+instructor HS0 logged out on 2023/03/03 18:50:51
+student 2020csb2 logged in on 2023/03/03 18:50:51
+instructor HS0 logged in on 2023/03/03 18:50:51
+instructor HS0 logged out on 2023/03/03 18:50:51
+instructor HS0 logged in on 2023/03/03 18:50:51
+instructor HS0 logged out on 2023/03/03 18:50:51
+instructor HS0 logged in on 2023/03/03 18:50:51
+instructor HS0 logged out on 2023/03/03 18:50:51
+student 2020csb2 logged out on 2023/03/03 18:50:51
+admin  logged in on 2023/03/03 18:51:03
+admin  logged out on 2023/03/03 18:51:03
+admin  logged in on 2023/03/03 18:51:03
+admin  logged out on 2023/03/03 18:51:03
+instructor HS0 logged in on 2023/03/03 18:51:03
+student 2020csb2 logged in on 2023/03/03 18:51:04
+student 2020csb2 logged out on 2023/03/03 18:51:04
+instructor HS0 logged out on 2023/03/03 18:51:04
+student 2020csb2 logged in on 2023/03/03 18:51:04
+student 2020csb2 logged out on 2023/03/03 18:51:04
+instructor HS0 logged in on 2023/03/03 18:51:04
+instructor HS0 logged out on 2023/03/03 18:51:04
+student 2020csb2 logged in on 2023/03/03 18:51:05
+student 2010csb0 logged in on 2023/03/03 18:51:05
+student 2010csb0 logged out on 2023/03/03 18:51:05
+student 2020csb2 logged out on 2023/03/03 18:51:05
+instructor HS0 logged in on 2023/03/03 18:51:05
+instructor HS0 logged out on 2023/03/03 18:51:05
+student 2020csb2 logged in on 2023/03/03 18:51:05
+instructor HS0 logged in on 2023/03/03 18:51:05
+instructor HS0 logged out on 2023/03/03 18:51:05
+instructor HS0 logged in on 2023/03/03 18:51:05
+instructor HS0 logged out on 2023/03/03 18:51:05
+instructor HS0 logged in on 2023/03/03 18:51:05
+instructor HS0 logged out on 2023/03/03 18:51:05
+student 2020csb2 logged out on 2023/03/03 18:51:05
+admin  logged in on 2023/03/03 18:52:18
+admin  logged out on 2023/03/03 18:52:19
+admin  logged in on 2023/03/03 18:52:19
+admin  logged out on 2023/03/03 18:52:19
+instructor HS0 logged in on 2023/03/03 18:52:19
+student 2020csb2 logged in on 2023/03/03 18:52:19
+student 2020csb2 logged out on 2023/03/03 18:52:19
+instructor HS0 logged out on 2023/03/03 18:52:19
+student 2020csb2 logged in on 2023/03/03 18:52:20
+student 2020csb2 logged out on 2023/03/03 18:52:20
+instructor HS0 logged in on 2023/03/03 18:52:20
+instructor HS0 logged out on 2023/03/03 18:52:20
+student 2020csb2 logged in on 2023/03/03 18:52:20
+student 2010csb0 logged in on 2023/03/03 18:52:20
+student 2010csb0 logged out on 2023/03/03 18:52:20
+student 2020csb2 logged out on 2023/03/03 18:52:20
+instructor HS0 logged in on 2023/03/03 18:52:20
+instructor HS0 logged out on 2023/03/03 18:52:21
+student 2020csb2 logged in on 2023/03/03 18:52:21
+instructor HS0 logged in on 2023/03/03 18:52:21
+instructor HS0 logged out on 2023/03/03 18:52:21
+instructor HS0 logged in on 2023/03/03 18:52:21
+instructor HS0 logged out on 2023/03/03 18:52:21
+instructor HS0 logged in on 2023/03/03 18:52:21
+instructor HS0 logged out on 2023/03/03 18:52:21
+student 2020csb2 logged out on 2023/03/03 18:52:21
+admin  logged in on 2023/03/04 15:35:58
+admin  logged in on 2023/03/04 15:38:02
+admin  logged in on 2023/03/04 15:40:47
+admin  logged in on 2023/03/04 15:42:32
+admin  logged in on 2023/03/04 19:30:54
+admin  logged out on 2023/03/04 19:30:54
+admin  logged in on 2023/03/04 19:32:01
+admin  logged out on 2023/03/04 19:32:01
+admin  logged in on 2023/03/04 19:40:59
+admin  logged out on 2023/03/04 19:41:00
+admin  logged in on 2023/03/04 19:45:58
+admin  logged out on 2023/03/04 19:45:58
+admin  logged in on 2023/03/04 19:46:44
+admin  logged out on 2023/03/04 19:46:44
+admin  logged in on 2023/03/04 19:46:52
+admin  logged out on 2023/03/04 19:46:52
+admin  logged in on 2023/03/04 19:51:55
+admin  logged out on 2023/03/04 19:51:55
+admin  logged in on 2023/03/04 19:52:10
+admin  logged out on 2023/03/04 19:52:10
+admin  logged in on 2023/03/04 19:52:10
+admin  logged out on 2023/03/04 19:52:10
+admin  logged in on 2023/03/04 20:15:16
+admin  logged out on 2023/03/04 20:15:17
+admin  logged in on 2023/03/04 20:15:17
+admin  logged out on 2023/03/04 20:15:17
+instructor HS0 logged in on 2023/03/04 20:31:41
+instructor HS0 logged out on 2023/03/04 20:31:42
+instructor HS0 logged in on 2023/03/04 20:31:42
+instructor HS0 logged out on 2023/03/04 20:31:42
+instructor HS0 logged in on 2023/03/04 20:38:24
+student 2020csb0 logged in on 2023/03/04 20:38:25
+student 2020csb0 logged out on 2023/03/04 20:38:25
+instructor HS0 logged out on 2023/03/04 20:38:25
+instructor HS0 logged in on 2023/03/04 20:39:12
+student 2020csb0 logged in on 2023/03/04 20:39:12
+student 2020csb0 logged out on 2023/03/04 20:39:12
+instructor HS0 logged out on 2023/03/04 20:39:12
+instructor HS0 logged in on 2023/03/04 20:39:41
+instructor HS0 logged out on 2023/03/04 20:39:42
+instructor HS0 logged in on 2023/03/04 20:39:51
+student 2020csb0 logged in on 2023/03/04 20:39:51
+student 2020csb0 logged out on 2023/03/04 20:39:51
+instructor HS0 logged out on 2023/03/04 20:39:52
+student 2020csb0 logged in on 2023/03/04 20:39:52
+student 2020csb0 logged out on 2023/03/04 20:39:52
+instructor HS0 logged in on 2023/03/04 20:39:52
+instructor HS0 logged out on 2023/03/04 20:39:52
+instructor HS0 logged in on 2023/03/04 20:40:24
+instructor HS0 logged out on 2023/03/04 20:40:24
+instructor HS0 logged in on 2023/03/04 20:41:29
+instructor HS0 logged out on 2023/03/04 20:41:29
+instructor HS0 logged in on 2023/03/04 20:42:03
+student 2020csb0 logged in on 2023/03/04 20:42:03
+student 2020csb0 logged out on 2023/03/04 20:42:03
+instructor HS0 logged out on 2023/03/04 20:42:04
+student 2020csb0 logged in on 2023/03/04 20:42:04
+student 2020csb0 logged out on 2023/03/04 20:42:04
+instructor HS0 logged in on 2023/03/04 20:42:04
+instructor HS0 logged out on 2023/03/04 20:42:05
+student  logged out on 2023/03/05 01:17:33
