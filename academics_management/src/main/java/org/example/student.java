@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-public class student {
+public class student implements student_academics{
      Connection conn = Connect.ConnectDB();
      Statement stmt = null;
      Scanner input = new Scanner(System.in);

@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-public class instructor implements academic{
+public class instructor implements instructor_academics{
     static Connection conn = Connect.ConnectDB();
     static Statement stmt = null;
     static Scanner input = new Scanner(System.in);

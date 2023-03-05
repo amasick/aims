@@ -1,7 +1,6 @@
 package org.example;
 import java.io.*;
 import java.sql.*;
-import javax.swing.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,11 +11,10 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner;
 import java.io.*;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-public class admin {
+public class admin implements user{
     static Connection conn = Connect.ConnectDB();
     static Statement stmt = null;
    static Scanner input = new Scanner(System.in);
@@ -61,9 +59,8 @@ public boolean user=false;
         user=true;
         return true;
     }
-public  void logout(){
+public  boolean logout(){
     try {
-
 
         FileWriter fileWritter = new FileWriter("log.txt",true);
         BufferedWriter out = new BufferedWriter(fileWritter);
@@ -87,8 +84,9 @@ user=false;
 
         // Display message when exception occurs
         System.out.println("exception occurred" + e);
+        return false;
     }
-
+return true;
 }
     public  boolean addbatch(String batch_id,String year,String dep_id){
 
