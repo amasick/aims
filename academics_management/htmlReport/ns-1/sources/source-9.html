@@ -1,0 +1,654 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > student</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example</a>
+</div>
+
+<h1>Coverage Summary for Class: student (org.example)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">student</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    73.9%
+  </span>
+  <span class="absValue">
+    (241/326)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example;
+&nbsp;import java.util.Scanner;
+&nbsp;import java.sql.*;
+&nbsp;import java.sql.Connection;
+&nbsp;import java.io.*;
+&nbsp;import java.sql.DriverManager;
+&nbsp;import java.sql.ResultSet;
+&nbsp;import java.sql.ResultSetMetaData;
+&nbsp;import java.sql.SQLException;
+&nbsp;import java.sql.Statement;
+&nbsp;import java.time.format.DateTimeFormatter;
+&nbsp;import java.time.LocalDateTime;
+<b class="fc">&nbsp;public class student implements student_academics{</b>
+<b class="fc">&nbsp;     Connection conn = Connect.ConnectDB();</b>
+<b class="fc">&nbsp;     Statement stmt = null;</b>
+<b class="fc">&nbsp;     Scanner input = new Scanner(System.in);</b>
+<b class="fc">&nbsp;    public  String user_id=&quot;&quot;;</b>
+&nbsp;
+<b class="fc">&nbsp;    public  String token=&quot;&#39;logged in&#39;&quot;;</b>
+&nbsp;
+<b class="fc">&nbsp;    public  boolean user=false;</b>
+<b class="fc">&nbsp;    public  String batch_id=&quot;&quot;;</b>
+<b class="fc">&nbsp; int credits=0;</b>
+&nbsp;    public boolean login(String email,String password){
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;            String query=&quot;select * from student where email=&#39;&quot;+email+&quot;&#39; and password=&#39;&quot;+password+&quot;&#39;;&quot;;</b>
+&nbsp;            try {
+<b class="fc">&nbsp;                stmt=conn.createStatement();</b>
+&nbsp;                ResultSet rs;
+&nbsp;
+<b class="fc">&nbsp;                rs=stmt.executeQuery(query);</b>
+&nbsp;
+<b class="fc">&nbsp;                int f=0;</b>
+<b class="fc">&nbsp;                while(rs.next()){</b>
+<b class="fc">&nbsp;                   f++;</b>
+<b class="fc">&nbsp;                    user_id=rs.getString(1);</b>
+<b class="fc">&nbsp;                    batch_id=rs.getString(3);</b>
+<b class="fc">&nbsp;                    credits=rs.getInt(8);</b>
+&nbsp;                }
+&nbsp;
+<b class="fc">&nbsp;                if( f==0){</b>
+<b class="nc">&nbsp;                   return false;</b>
+&nbsp;                }
+&nbsp;                else{
+<b class="fc">&nbsp;                    user=true;</b>
+<b class="fc">&nbsp;                    query=&quot;update student set token=&quot;+token+&quot; where id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+<b class="fc">&nbsp;                    stmt.executeUpdate(query);</b>
+<b class="fc">&nbsp;                    System.out.println(&quot;logged in successfully&quot;);</b>
+<b class="fc">&nbsp;                    Write_toLog.write(&quot;student&quot;,user_id,&quot;logged in&quot;);</b>
+&nbsp;                }
+&nbsp;
+<b class="nc">&nbsp;            } catch (SQLException e) {</b>
+<b class="nc">&nbsp;                System.out.println(e);</b>
+<b class="nc">&nbsp;              return false;</b>
+<b class="fc">&nbsp;            }</b>
+&nbsp;
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;    public boolean logout(){
+<b class="fc">&nbsp;        user=false;</b>
+<b class="fc">&nbsp;        String query=&quot;update student set token=&quot;+&quot;&#39;logged out&#39;&quot;+&quot; where id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+&nbsp;//        System.out.println(query);
+&nbsp;        try {
+&nbsp;
+<b class="fc">&nbsp;            stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;            stmt.executeUpdate(query);</b>
+&nbsp;
+<b class="fc">&nbsp;            Write_toLog.write(&quot;student&quot;,user_id,&quot;logged out&quot;);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+&nbsp;//            throw new RuntimeException(e);
+<b class="nc">&nbsp;            System.out.println(e);</b>
+<b class="nc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        System.out.println(&quot;logged out successfully&quot;);</b>
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;    public boolean viewprofile()
+&nbsp;    {
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        String query=&quot;select * from student where id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+&nbsp;
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt=conn.createStatement();</b>
+<b class="fc">&nbsp;            ResultSet rs=stmt.executeQuery(query);</b>
+&nbsp;            ResultSetMetaData rsmd;
+<b class="fc">&nbsp;            rsmd=rs.getMetaData();</b>
+<b class="fc">&nbsp;            int columnsNumber = rsmd.getColumnCount();</b>
+<b class="fc">&nbsp;            String responseQuery=&quot;&quot;;</b>
+<b class="fc">&nbsp;            while (rs.next()) {</b>
+<b class="fc">&nbsp;                for (int i = 1; i &lt;= columnsNumber; i++) {</b>
+&nbsp;
+<b class="fc">&nbsp;                    if (i == 1)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;id ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 2)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;      name ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 3)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;      batch_id ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 4)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;      email ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 5)</b>
+<b class="fc">&nbsp;                        continue;</b>
+<b class="fc">&nbsp;                    if (i == 6)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;      phone_number ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 7)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;      curr_sem ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 8)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;      credits ---&gt; &quot;;</b>
+&nbsp;
+<b class="fc">&nbsp;                    if(i==9)continue;</b>
+<b class="fc">&nbsp;                        String columnValue = rs.getString(i);</b>
+<b class="fc">&nbsp;                        responseQuery += columnValue+&quot; &quot;;</b>
+&nbsp;
+&nbsp;                    // System.out.print(columnValue + &quot; &quot; + rsmd.getColumnName(i));
+&nbsp;                }
+&nbsp;
+&nbsp;            }
+<b class="fc">&nbsp;            System.out.println(responseQuery);</b>
+&nbsp;
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+&nbsp;//            throw new RuntimeException(e);
+<b class="nc">&nbsp;            System.out.println(e);</b>
+<b class="nc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;    public boolean updateprofile(String name,String password,String phone_number){
+&nbsp;
+<b class="fc">&nbsp;        String query =&quot; update student set name=&#39;&quot;+name+&quot;&#39;,phone_number=&#39;&quot;+phone_number+&quot;&#39;,password=&#39;&quot;+password+&quot;&#39; where id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+&nbsp;
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt=conn.createStatement();</b>
+<b class="fc">&nbsp;            stmt.executeUpdate(query);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;profile updated successfully&quot;);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+&nbsp;//            throw new RuntimeException(e);
+<b class="nc">&nbsp;            System.out.println(e);</b>
+<b class="nc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;return true;</b>
+&nbsp;    }
+&nbsp;    public boolean addCourse(String course_id){
+&nbsp;
+&nbsp;
+&nbsp;            try {
+<b class="fc">&nbsp;                stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;                String query=&quot;select * from course_offering where course_id=&#39;&quot;+course_id+&quot;&#39;;&quot;;</b>
+<b class="fc">&nbsp;double cgpa_limit=0.0;</b>
+<b class="fc">&nbsp;String instructor_id=&quot;&quot;;</b>
+&nbsp;                try {
+&nbsp;                    ResultSet rs;
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;                    rs=stmt.executeQuery(query);</b>
+<b class="fc">&nbsp;int f=0;</b>
+<b class="fc">&nbsp;while(rs.next()){f++;cgpa_limit=rs.getInt(2);instructor_id=rs.getString(3);}</b>
+<b class="fc">&nbsp;if(f==0){System.out.println(&quot;no such course is offered&quot;);</b>
+<b class="nc">&nbsp;    return false;}</b>
+&nbsp;
+&nbsp;                }
+<b class="nc">&nbsp;                catch (SQLException e){</b>
+<b class="nc">&nbsp;                    System.out.println(e);</b>
+&nbsp;
+<b class="nc">&nbsp;                    return false;</b>
+<b class="fc">&nbsp;                }</b>
+<b class="fc">&nbsp;                System.out.println(course_id);</b>
+<b class="fc">&nbsp;if(islessthantwo()==false) {</b>
+<b class="fc">&nbsp;    double cgpa = getcgpa();</b>
+&nbsp;
+<b class="fc">&nbsp;    if (cgpa &gt; 0 &amp;&amp; cgpa &lt; cgpa_limit) {</b>
+<b class="fc">&nbsp;        System.out.println(&quot;you cannot take this course as your cgpa is less than required &quot; + cgpa_limit);</b>
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;query=&quot;select * from course where id=&#39;&quot;+course_id+&quot;&#39;;&quot;;</b>
+&nbsp;              try{
+<b class="fc">&nbsp;                  ResultSet rs= stmt.executeQuery(query);</b>
+<b class="fc">&nbsp;                  int c=0;</b>
+<b class="fc">&nbsp;                  while (rs.next()){</b>
+<b class="fc">&nbsp;                      c=rs.getInt(7);</b>
+&nbsp;                  }
+<b class="fc">&nbsp;                  if(credits+c&gt;24){</b>
+<b class="fc">&nbsp;                      System.out.println(&quot;your credit limit has exceeded for this semester&quot;);</b>
+<b class="fc">&nbsp;                      return false;</b>
+&nbsp;                  }
+&nbsp;              }
+<b class="nc">&nbsp;              catch (SQLException e){</b>
+<b class="nc">&nbsp;                  System.out.println(e);</b>
+<b class="nc">&nbsp;                  return false;</b>
+<b class="fc">&nbsp;              }</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;                try {
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;                   query=&quot;select * from prereq where course_id=&#39;&quot;+course_id+&quot;&#39;;&quot;;</b>
+<b class="fc">&nbsp;                   ResultSet rs=stmt.executeQuery(query);</b>
+<b class="fc">&nbsp;                   int flag=1;</b>
+<b class="fc">&nbsp;                   while (rs.next()){</b>
+<b class="fc">&nbsp;                       String prereq=rs.getString(2);</b>
+&nbsp;                       try{
+<b class="fc">&nbsp;                           stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;                           query=&quot;select * from grades where course_id=&#39;&quot;+prereq+&quot;&#39; and student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+<b class="fc">&nbsp;                           ResultSet rs2=stmt.executeQuery(query);</b>
+<b class="fc">&nbsp;                           String grade=&quot;&quot;;</b>
+<b class="fc">&nbsp;                           while (rs2.next()){</b>
+<b class="fc">&nbsp;                               grade=rs2.getString(3);</b>
+&nbsp;                           }
+<b class="fc">&nbsp;                           if(grade.equals(&quot;F&quot;) || grade.equals(&quot;&quot;)){</b>
+<b class="fc">&nbsp;                               System.out.println(&quot;Complete the course &quot;+prereq+&quot; first to register this course&quot;);</b>
+<b class="fc">&nbsp;                               flag=0;</b>
+&nbsp;                           }
+<b class="nc">&nbsp;                       }catch (SQLException e){</b>
+<b class="nc">&nbsp;                           System.out.println(e);</b>
+&nbsp;
+<b class="fc">&nbsp;                       }</b>
+<b class="fc">&nbsp;                   }</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;if(flag==0){</b>
+<b class="fc">&nbsp;    return false;</b>
+&nbsp;
+&nbsp;}
+<b class="fc">&nbsp;                        query=&quot;insert into registration_status(course_id,student_id,instructor_id,status) values (&#39;&quot;+course_id+&quot;&#39;,&#39;&quot;+user_id+&quot;&#39;,&#39;&quot;+instructor_id+&quot;&#39;,&quot;+&quot;&#39;pending instructor approval&#39;);&quot;;</b>
+<b class="fc">&nbsp;                        stmt.executeUpdate(query);</b>
+<b class="fc">&nbsp;                        System.out.println(&quot;Added course successfully&quot;);</b>
+&nbsp;
+&nbsp;                }
+<b class="nc">&nbsp;                catch (SQLException e){</b>
+&nbsp;//                    System.out.println(e);
+<b class="fc">&nbsp;                }</b>
+&nbsp;
+<b class="nc">&nbsp;            } catch (SQLException e) {</b>
+&nbsp;//                throw new RuntimeException(e);
+<b class="nc">&nbsp;                System.out.println(e);</b>
+<b class="fc">&nbsp;            }</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String offeredCourses()  {
+&nbsp;
+<b class="fc">&nbsp;        String query=&quot;\n&quot; +</b>
+&nbsp;                &quot;select course_offering.course_id,course_offering.cgpa_limit,ug_curriculum.course_type,course_offering.instructor_id\n&quot; +
+&nbsp;                &quot;from ug_curriculum,course_offering\n&quot; +
+&nbsp;                &quot;where &#39;&quot;+batch_id+&quot;&#39;=ug_curriculum.batch_id and ug_curriculum.course_id=course_offering.course_id;&quot;;
+&nbsp;          try {
+<b class="fc">&nbsp;              stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;              ResultSet rs=stmt.executeQuery(query);</b>
+&nbsp;              ResultSetMetaData rsmd;
+<b class="fc">&nbsp;              rsmd=rs.getMetaData();</b>
+<b class="fc">&nbsp;              int columnsNumber = rsmd.getColumnCount();</b>
+<b class="fc">&nbsp;              String responseQuery=&quot;&quot;;</b>
+<b class="fc">&nbsp;              while (rs.next()) {</b>
+<b class="nc">&nbsp;                  for (int i = 1; i &lt;= columnsNumber; i++) {</b>
+&nbsp;
+<b class="nc">&nbsp;                      if (i == 1)</b>
+<b class="nc">&nbsp;                          responseQuery += &quot;course_id ---&gt; &quot;;</b>
+<b class="nc">&nbsp;                      if (i == 2)</b>
+<b class="nc">&nbsp;                          responseQuery += &quot;cgpa_limit &quot;;</b>
+<b class="nc">&nbsp;                      if (i == 3)</b>
+<b class="nc">&nbsp;                          responseQuery += &quot;course_type ---&gt; &quot;;</b>
+<b class="nc">&nbsp;                      if (i == 4)</b>
+<b class="nc">&nbsp;                          responseQuery += &quot;instructor_id&quot; +</b>
+&nbsp;                                  &quot; ---&gt; &quot;;
+<b class="nc">&nbsp;                      String columnValue = rs.getString(i);</b>
+<b class="nc">&nbsp;                      responseQuery += columnValue+&quot; &quot;;</b>
+&nbsp;                      // System.out.print(columnValue + &quot; &quot; + rsmd.getColumnName(i));
+&nbsp;                  }
+<b class="nc">&nbsp;                  responseQuery+=&quot;\n&quot;;</b>
+&nbsp;              }
+<b class="fc">&nbsp;            return responseQuery;</b>
+&nbsp;
+&nbsp;          }
+<b class="fc">&nbsp;          catch (SQLException e){</b>
+<b class="fc">&nbsp;                 System.out.println(e);</b>
+<b class="fc">&nbsp;                 return &quot;no courses offered yet&quot;;</b>
+&nbsp;          }
+&nbsp;
+&nbsp;    }
+&nbsp;    public String mycourses(){
+<b class="fc">&nbsp;        String query=&quot;select * from registration_status where student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;            ResultSet rs=stmt.executeQuery(query);</b>
+&nbsp;            ResultSetMetaData rsmd;
+<b class="nc">&nbsp;            rsmd=rs.getMetaData();</b>
+<b class="nc">&nbsp;            int columnsNumber = rsmd.getColumnCount();</b>
+<b class="nc">&nbsp;            String responseQuery=&quot;&quot;;</b>
+<b class="nc">&nbsp;            int f=0;</b>
+<b class="nc">&nbsp;            while (rs.next()) {</b>
+<b class="nc">&nbsp;                f++;</b>
+<b class="nc">&nbsp;                for (int i = 1; i &lt;= columnsNumber; i++) {</b>
+&nbsp;
+<b class="nc">&nbsp;                    if (i == 1)</b>
+<b class="nc">&nbsp;                        responseQuery += &quot;course_id ---&gt; &quot;;</b>
+<b class="nc">&nbsp;                    if (i == 2)</b>
+<b class="nc">&nbsp;                        continue;</b>
+<b class="nc">&nbsp;                    if (i == 3)</b>
+<b class="nc">&nbsp;                        responseQuery += &quot;instructor_id ---&gt; &quot;;</b>
+<b class="nc">&nbsp;                    if (i == 4)</b>
+<b class="nc">&nbsp;                        responseQuery += &quot;status ---&gt; &quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;                    String columnValue = rs.getString(i);</b>
+<b class="nc">&nbsp;                    responseQuery += columnValue+&quot;      &quot;;</b>
+&nbsp;                    // System.out.print(columnValue + &quot; &quot; + rsmd.getColumnName(i));
+&nbsp;                }
+<b class="nc">&nbsp;                responseQuery+=&quot;\n\n&quot;;</b>
+&nbsp;            }
+<b class="nc">&nbsp;            if(f==0){</b>
+<b class="nc">&nbsp;                return &quot;you have no courses&quot;;</b>
+&nbsp;            }
+<b class="nc">&nbsp;            return responseQuery;</b>
+&nbsp;
+<b class="fc">&nbsp;        } catch (SQLException e) {</b>
+<b class="fc">&nbsp;            System.out.println(e);</b>
+<b class="fc">&nbsp;            return &quot;error&quot;;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;    public boolean deleteCourse(String course_id)
+&nbsp;    {
+<b class="fc">&nbsp;            String query=&quot;delete from registration_status where course_id=&#39;&quot;+course_id+&quot;&#39; and student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+&nbsp;            try {
+<b class="fc">&nbsp;                stmt=conn.createStatement();</b>
+<b class="fc">&nbsp;                stmt.executeUpdate(query);</b>
+<b class="fc">&nbsp;            } catch (SQLException e) {</b>
+<b class="fc">&nbsp;                System.out.println(&quot;you have not added this course yet&quot;);</b>
+&nbsp;//                throw new RuntimeException(e);
+<b class="fc">&nbsp;                return false;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String showGrades()
+&nbsp;    {
+<b class="fc">&nbsp;             String query=&quot;select * from grades where student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;            ResultSet rs=stmt.executeQuery(query);</b>
+&nbsp;            ResultSetMetaData rsmd;
+<b class="fc">&nbsp;            rsmd=rs.getMetaData();</b>
+<b class="fc">&nbsp;            int columnsNumber = rsmd.getColumnCount();</b>
+<b class="fc">&nbsp;            String responseQuery=&quot;&quot;;</b>
+<b class="fc">&nbsp;            int f=0;</b>
+<b class="fc">&nbsp;            while (rs.next()) {</b>
+<b class="fc">&nbsp;                f++;</b>
+<b class="fc">&nbsp;                for (int i = 1; i &lt;= columnsNumber; i++) {</b>
+&nbsp;
+<b class="fc">&nbsp;                    if (i == 1)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;student_id ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 2)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;instructor_id ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 3)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;course_id ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 4)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;grade ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 5)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;semester ---&gt; &quot;;</b>
+<b class="fc">&nbsp;                    if (i == 6)</b>
+<b class="fc">&nbsp;                        responseQuery += &quot;academic_year ---&gt; &quot;;</b>
+&nbsp;
+<b class="fc">&nbsp;                    String columnValue = rs.getString(i);</b>
+<b class="fc">&nbsp;                    responseQuery += columnValue+&quot;          &quot;;</b>
+&nbsp;                    // System.out.print(columnValue + &quot; &quot; + rsmd.getColumnName(i));
+&nbsp;                }
+<b class="fc">&nbsp;                responseQuery+=&quot;\n\n&quot;;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            if(f==0){</b>
+<b class="fc">&nbsp;                return &quot;No grades to show yet&quot; ;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            return responseQuery;</b>
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+<b class="nc">&nbsp;            throw new RuntimeException(e);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public double getcgpa()
+&nbsp;    {
+<b class="fc">&nbsp;         String query=&quot;select grades.grade,course.c from grades,course where student_id=&#39;&quot;+user_id+&quot;&#39; and course.id=grades.course_id;&quot;;</b>
+<b class="fc">&nbsp;         double cgpa=0.0;</b>
+<b class="fc">&nbsp;        double creds=0;</b>
+<b class="fc">&nbsp;        double points=0;</b>
+<b class="fc">&nbsp;        int f=0;</b>
+<b class="fc">&nbsp;        String cid=&quot;&quot;,grade=&quot;&quot;;</b>
+&nbsp;
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;            ResultSet rs=stmt.executeQuery(query);</b>
+<b class="fc">&nbsp;            while (rs.next()) {</b>
+<b class="fc">&nbsp;                f++;</b>
+&nbsp;
+<b class="fc">&nbsp;                 grade=rs.getString(1);</b>
+<b class="fc">&nbsp;                 creds+=rs.getInt(2);</b>
+&nbsp;
+<b class="fc">&nbsp;                switch (grade){</b>
+<b class="fc">&nbsp;                    case &quot;A&quot;:points+=10;break;</b>
+<b class="nc">&nbsp;                    case &quot;A-&quot;:points+=9;break;</b>
+<b class="nc">&nbsp;                    case &quot;B&quot;:points+=8;break;</b>
+<b class="nc">&nbsp;                    case &quot;B-&quot;:points+=7;break;</b>
+<b class="nc">&nbsp;                    case &quot;C&quot;:points+=6;break;</b>
+<b class="nc">&nbsp;                    case &quot;C-&quot;:points+=5;break;</b>
+<b class="nc">&nbsp;                    case &quot;D&quot;:points+=4;break;</b>
+<b class="nc">&nbsp;                    case &quot;E&quot;:points+=2;break;</b>
+<b class="nc">&nbsp;                    case &quot;F&quot;:points+=0;break;</b>
+&nbsp;
+&nbsp;                }
+<b class="fc">&nbsp;                System.out.println(creds +&quot; &quot; + points);</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            if(f==0){</b>
+<b class="fc">&nbsp;                return 0.0;</b>
+&nbsp;            }
+&nbsp;            else{
+<b class="fc">&nbsp;                cgpa=points/creds;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+<b class="nc">&nbsp;System.out.println(e);</b>
+<b class="nc">&nbsp;            if(creds!=0.0 &amp;&amp; f!=0){</b>
+<b class="nc">&nbsp;            cgpa=points/creds;</b>
+&nbsp;//            System.out.println(cgpa);
+<b class="nc">&nbsp;            return cgpa;}</b>
+<b class="nc">&nbsp;            return 0.0;</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        System.out.println(cgpa);</b>
+<b class="fc">&nbsp;        return cgpa;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String gradcheck(){
+&nbsp;        // checking if all program cores are completed
+<b class="fc">&nbsp;String query=&quot;\n&quot; +</b>
+&nbsp;        &quot;select ug_curriculum.course_id\n&quot; +
+&nbsp;        &quot;from ug_curriculum\n&quot; +
+&nbsp;        &quot;where course_type=&#39;core&#39; and batch_id=&#39;&quot;+batch_id+&quot;&#39;\n&quot; +
+&nbsp;        &quot;except\n&quot; +
+&nbsp;        &quot;select grades.course_id\n&quot; +
+&nbsp;        &quot;from grades\n&quot; +
+&nbsp;        &quot;where grades.grade!=&#39;F&#39; and grades.student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;
+&nbsp;// if min 2 electives are completed
+<b class="fc">&nbsp;        String q1=&quot;select * from ug_curriculum, grades where ug_curriculum.course_id=grades.course_id and ug_curriculum.course_type=&#39;elective&#39; and grades.grade!=&#39;F&#39;;&quot;;</b>
+&nbsp;
+&nbsp;        // if capstone is completed there will be 2 entries in grade table if the student completes 2 BTP in 2 sem
+<b class="fc">&nbsp;        String q2=&quot;select * from grades where (grades.course_id=&#39;CP302&#39; or grades.course_id=&#39;CP303&#39;) and grades.grade!=&#39;F&#39;;&quot;;</b>
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;            ResultSet rs=stmt.executeQuery(query);</b>
+&nbsp;
+<b class="fc">&nbsp;            int f=0;</b>
+<b class="fc">&nbsp;            String responsequery=&quot;&quot;;</b>
+<b class="fc">&nbsp;            while (rs.next()){</b>
+<b class="nc">&nbsp;                responsequery+=rs.getString(1)+&quot;   &quot;;</b>
+<b class="nc">&nbsp;                f++;</b>
+&nbsp;            }
+&nbsp;//            System.out.println(responsequery);
+&nbsp;
+<b class="fc">&nbsp;            if(f&gt;0){</b>
+<b class="nc">&nbsp;                return&quot;you have not completed all core courses yet&quot;;</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            rs=stmt.executeQuery(q1);</b>
+<b class="fc">&nbsp;            f=0;</b>
+<b class="fc">&nbsp;            while(rs.next())f++;</b>
+<b class="fc">&nbsp;            if(f&lt;2) {</b>
+<b class="fc">&nbsp;                return &quot;you have not completed 2  electives&quot;;</b>
+&nbsp;            }
+<b class="fc">&nbsp;f=0;</b>
+<b class="fc">&nbsp;            rs=stmt.executeQuery(q2);</b>
+<b class="fc">&nbsp;            while(rs.next())f++;</b>
+&nbsp;
+<b class="fc">&nbsp;            if(f!=2) {</b>
+<b class="fc">&nbsp;                return &quot;you have not completed capstone yet&quot;;</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+&nbsp;//            throw new RuntimeException(e);
+<b class="nc">&nbsp;            System.out.println(e);</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        int program_credits=0,engineering_credits=0,elective_credits=0;</b>
+<b class="fc">&nbsp;        String query1=&quot;select c from course,ug_curriculum,grades where course.id=grades.course_id and ug_curriculum.course_id=course.id and  (ug_curriculum.course_type=&#39;core&#39; or ug_curriculum.course_type=&#39;program elective&#39;) and grades.grade!=&#39;F&#39; and grades.student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+<b class="fc">&nbsp;        String query2=&quot;select c from course,ug_curriculum,grades where course.id=grades.course_id and ug_curriculum.course_id=course.id and  ug_curriculum.course_type=&#39;general engineering&#39; and grades.grade!=&#39;F&#39; and grades.student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+<b class="fc">&nbsp;        String query3=&quot;select c from course,ug_curriculum,grades where course.id=grades.course_id and ug_curriculum.course_id=course.id and  ug_curriculum.course_type=&#39;elective&#39; and grades.grade!=&#39;F&#39; and grades.student_id=&#39;&quot;+user_id+&quot;&#39;;&quot;;</b>
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;            ResultSet rs=stmt.executeQuery(query1);</b>
+<b class="fc">&nbsp;            while(rs.next())program_credits+=rs.getInt(1);</b>
+<b class="fc">&nbsp;             rs=stmt.executeQuery(query2);</b>
+<b class="fc">&nbsp;            while(rs.next())engineering_credits+=rs.getInt(1);</b>
+&nbsp;
+<b class="fc">&nbsp;            rs=stmt.executeQuery(query3);</b>
+<b class="fc">&nbsp;            while(rs.next())elective_credits+=rs.getInt(1);</b>
+&nbsp;
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+<b class="nc">&nbsp;            throw new RuntimeException(e);</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;        // total credits&gt;120
+&nbsp;
+&nbsp;        // program core credits &gt;=60
+<b class="fc">&nbsp;        if(program_credits&lt;70){</b>
+<b class="fc">&nbsp;            return &quot;program core credits less than 70&quot;;</b>
+&nbsp;        }
+&nbsp;        // engineering core &gt;=30
+&nbsp;
+<b class="fc">&nbsp;        if(engineering_credits&lt;30){</b>
+<b class="fc">&nbsp;            return &quot;engineering core credits less than 30&quot;;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // electives &gt;=30
+<b class="fc">&nbsp;        if(elective_credits&lt;35){</b>
+<b class="fc">&nbsp;            return  &quot;open elective credits less than 35&quot;;</b>
+&nbsp;        }
+<b class="fc">&nbsp;System.out.println(program_credits+engineering_credits+elective_credits);</b>
+<b class="fc">&nbsp;        if(program_credits+engineering_credits+elective_credits&lt;140){</b>
+<b class="fc">&nbsp;            return &quot;total credits less than 140&quot;;</b>
+&nbsp;        }
+<b class="fc">&nbsp;return &quot;eligible for graduation&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public  boolean islessthantwo (){
+<b class="fc">&nbsp;        String query=&quot;select count(*) from grades where student_id=&#39;&quot;+user_id+&quot;&#39; GROUP BY academic_year,semester;&quot;;</b>
+<b class="fc">&nbsp;        int f=0;</b>
+&nbsp;        try {
+<b class="fc">&nbsp;            stmt= conn.createStatement();</b>
+<b class="fc">&nbsp;            ResultSet rs=stmt.executeQuery(query);</b>
+<b class="fc">&nbsp;            while(rs.next()){</b>
+<b class="fc">&nbsp;                f++;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        } catch (SQLException e) {</b>
+<b class="nc">&nbsp;            System.out.println(e);</b>
+&nbsp;//            throw new RuntimeException(e);
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        if(f&lt;2)return true;</b>
+<b class="fc">&nbsp;        else return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-03-06 16:50</div>
+</div>
+</body>
+</html>

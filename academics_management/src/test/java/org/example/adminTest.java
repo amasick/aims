@@ -2,6 +2,9 @@ package org.example;
 
 import org.junit.jupiter.api.*;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class adminTest {
-
+    static Connection conn = Connect.ConnectDB();
+    static Statement stmt = null;
     admin x=new admin();
 
     @BeforeAll
@@ -62,8 +66,22 @@ class adminTest {
     @Test
     void showGrades() {
 //          String grades=x.showGrades();
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','DM111','A','winter','2019')");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         boolean f=x.showGrades("2020csb0");
         assertTrue(f);
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("delete from grades where student_id='2020csb0'");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 //
     @Test
@@ -86,12 +104,12 @@ class adminTest {
 
     @Test
     void startsem(){
-        String resp=x.viewsemester();
-         String f=x.startsem("2026","monsoon");
+        String resp=Semester_management.viewsemester();
+         String f=Semester_management.startsem("2026","monsoon");
 //         System.out.println(resp);
          if(resp.equals("no sem is running")){
              assertNotEquals(f,"a sem is already running");
-             boolean b=x.endsem();
+             boolean b=Semester_management.endsem();
              assertEquals(b,true);
          }
          else{
@@ -101,8 +119,8 @@ class adminTest {
 
     @Test
     void endsem() {
-        String resp=x.viewsemester();
-        boolean f=x.endsem();
+        String resp=Semester_management.viewsemester();
+        boolean f=Semester_management.endsem();
 //         System.out.println(resp);
         if(resp.equals("no sem is running")){
          assertEquals(f,false);
@@ -114,12 +132,12 @@ class adminTest {
 
     @Test
     void updatecoursecatalog() {
-      if(admin.viewsemester().equals("no sem is running")){
+      if(Semester_management.viewsemester().equals("no sem is running")){
           assertFalse(x.updatecoursecatalog("CS301"));
-          x.startsem("2030","f");
+          Semester_management.startsem("2030","f");
           assertTrue(x.updatecoursecatalog("CS301"));
           assertTrue(x.deletefromcoursecatalog("CS301"));
-          x.endsem();
+          Semester_management.endsem();
       }
       else{
           assertTrue(x.updatecoursecatalog("CS301"));
@@ -130,11 +148,25 @@ class adminTest {
 
     @Test
     void generateandsubmitransscript() {
-        assertTrue(x.generatetranscript("2020csb0"));
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','DM111','A','winter','2019')");
+            stmt.executeUpdate("insert into grades(student_id,instructor_id,course_id,grade,semester,academic_year) values ('2020csb0','HS0','CS302','A','monsoon','2019')");
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        assertTrue(x.generatetranscript("2020csb0"));
 boolean f=x.submittranscript("2020csb0");
 assertEquals(f,true);
 assertEquals(x.deletetranscript("2020csb0"),true);
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("delete from grades where student_id='2020csb0'");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
@@ -158,5 +190,31 @@ assertEquals(x.deletetranscript("2020csb0"),true);
     void viewusers() {
         assertEquals(x.viewusers("1"),true);
         assertEquals(x.viewusers("2"),true);
+    }
+    @Test
+    void startorclosewindowstudent(){
+         if(Semester_management.viewsemester().equals("no sem is running")){
+            assertFalse(Semester_management.openwindowforstudent());
+         }
+         else{
+             Semester_management.endsem();
+         }
+         Semester_management.startsem("2050","winter");
+         assertTrue(Semester_management.openwindowforstudent());
+        assertTrue(Semester_management.closewindowforstudent());
+
+    }
+
+    @Test
+    void startorclosewindowinstructor(){
+        if(Semester_management.viewsemester().equals("no sem is running")){
+            assertFalse(Semester_management.openwindowforinstructor());
+        }
+        else{
+            Semester_management.endsem();
+        }
+        Semester_management.startsem("2050","winter");
+        assertTrue(Semester_management.openwindowforinstructor());
+        assertTrue(Semester_management.closewindowforinstructor());
     }
 }

@@ -42,30 +42,30 @@ class studentTest {
      @Test
      void offeredcourses(){
         admin y=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertEquals(stu.offeredCourses(),"no courses offered yet");
 
         }
         else{
-            y.endsem();
+            Semester_management.endsem();
         }
 
-        y.startsem("2020","monsoon");
+        Semester_management.startsem("2020","monsoon");
         y.updatecoursecatalog("CS301");
         assertNotEquals(stu.offeredCourses(),"no course is offered yet");
-        y.endsem();
+        Semester_management.endsem();
      }
     @Test
     void addCoursewhencgpalessthanlimit() {
 
         instructor y=new instructor();
         admin z=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
 
         }else{
-            z.endsem();
+            Semester_management.endsem();
         }
-        z.startsem("2020","monsoon");
+        Semester_management.startsem("2020","monsoon");
         z.updatecoursecatalog("DM111");
         y.login("HS0@iitrpr.ac.in","1234");
         y.addCourse("DM111","5");
@@ -80,7 +80,7 @@ class studentTest {
         }
         assertFalse(stu.addCourse("DM111"));
         y.logout();
-        z.endsem();
+        Semester_management.endsem();
         try {
          stmt.executeUpdate("delete from grades where student_id='2020csb0'");
         } catch (SQLException e) {
@@ -93,12 +93,12 @@ class studentTest {
 
         instructor y=new instructor();
         admin z=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
 
         }else{
-            z.endsem();
+            Semester_management.endsem();
         }
-        z.startsem("2020","monsoon");
+        Semester_management.startsem("2020","monsoon");
         List<String> data=new ArrayList<String>();
         data.add("DM111");
         z.addcourse("DM112","dummy2","CS","3","3","3","3",data);
@@ -115,7 +115,7 @@ class studentTest {
             throw new RuntimeException(e);
         }
         assertFalse(stu.addCourse("DM112"));
-        z.endsem();
+        Semester_management.endsem();
         z.deletecourse("DM112");
         y.logout();
 
@@ -126,12 +126,12 @@ class studentTest {
 
         instructor y=new instructor();
         admin z=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
 
         }else{
-            z.endsem();
+            Semester_management.endsem();
         }
-        z.startsem("2020","monsoon");
+        Semester_management.startsem("2020","monsoon");
         List<String> data=new ArrayList<String>();
         data.add("DM111");
         z.addcourse("DM112","dummy2","CS","3","3","3","3",data);
@@ -148,7 +148,7 @@ class studentTest {
             throw new RuntimeException(e);
         }
         assertTrue(stu.addCourse("DM112"));
-        z.endsem();
+        Semester_management.endsem();
         z.deletecourse("DM112");
         y.logout();
         try {
@@ -163,26 +163,26 @@ class studentTest {
         stu.credits=23;
         instructor y=new instructor();
         admin z=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
 
         }else{
-            z.endsem();
+            Semester_management.endsem();
         }
-        z.startsem("2020","monsoon");
+        Semester_management.startsem("2020","monsoon");
         z.updatecoursecatalog("DM111");
 
         y.login("HS0@iitrpr.ac.in","1234");
         y.addCourse("DM111","1");
 
         assertFalse(stu.addCourse("DM111"));
-        z.endsem();
+        Semester_management.endsem();
         y.logout();
     stu.credits=f;
     }
     @Test
     void mycourses() {
 
-if(admin.viewsemester().equals("no sem is running")){
+if(Semester_management.viewsemester().equals("no sem is running")){
    assertEquals(stu.mycourses(),"error");
 }
 else{
@@ -192,7 +192,7 @@ else{
 
     @Test
     void deleteCourse() {
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertFalse(stu.deleteCourse("DM111"));
         }
         else{

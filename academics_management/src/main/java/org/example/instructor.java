@@ -44,29 +44,10 @@ public class instructor implements instructor_academics{
                     query="update instructor set token="+token+" where id='"+user_id+"';";
                     stmt.executeUpdate(query);
                     System.out.println("logged in successfully");
-                    try {
-
-                        // Open given file in append mode by creating an
-                        // object of BufferedWriter class
-                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                        LocalDateTime now = LocalDateTime.now();
-                        String time= dtf.format(now);
-                        BufferedWriter out = new BufferedWriter(
-                                new FileWriter("log.txt", true));
-                        query="instructor "+user_id+" logged in on "+ time+"\n";
-                        // Writing on output stream
-                        out.write(query);
-                        // Closing the connection
-                        out.close();
-                    }
+               Write_toLog.write("instructor",user_id,"logged in");
 
                     // Catch block to handle the exceptions
-                    catch (IOException e) {
 
-                        // Display message when exception occurs
-                        System.out.println("exception occurred" + e);
-                        return false;
-                    }
 
                 }
 
@@ -89,29 +70,8 @@ return false;
 
             stmt= conn.createStatement();
             stmt.executeUpdate(query);
-            try {
+            Write_toLog.write("instructor",user_id,"logged out");
 
-                // Open given file in append mode by creating an
-                // object of BufferedWriter class
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                LocalDateTime now = LocalDateTime.now();
-                String time= dtf.format(now);
-                BufferedWriter out = new BufferedWriter(
-                        new FileWriter("log.txt", true));
-                query="instructor "+user_id+" logged out on "+ time +"\n";
-                // Writing on output stream
-                out.write(query);
-                // Closing the connection
-                out.close();
-            }
-
-            // Catch block to handle the exceptions
-            catch (IOException e) {
-
-                // Display message when exception occurs
-                System.out.println("exception occurred" + e);
-                return false;
-            }
 
         } catch (SQLException e) {
             System.out.println("exception occurred" + e);

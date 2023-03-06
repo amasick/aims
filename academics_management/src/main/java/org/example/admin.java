@@ -24,33 +24,8 @@ public boolean user=false;
 
 //            System.out.println(username + " "+ password);
             if(username.equals("admin") && password.equals("iitropar")){
-                try {
+                Write_toLog.write("admin","acad_dean","logged in");
 
-
-                    FileWriter fileWritter = new FileWriter("log.txt",true);
-                    BufferedWriter out = new BufferedWriter(fileWritter);
-                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                    LocalDateTime now = LocalDateTime.now();
-                    String time= dtf.format(now);
-
-
-
-                    String query="admin  logged in on "+ time +"\n";
-                    // Writing on output stream
-                    out.write(query);
-                    System.out.println("logged in successfully");
-
-                    // Closing the connection
-                    out.close();
-                }
-
-                // Catch block to handle the exceptions
-                catch (IOException e) {
-
-                    // Display message when exception occurs
-                    System.out.println("exception occurred" + e);
-                    return false;
-                }
 
             }
             else{
@@ -60,32 +35,11 @@ public boolean user=false;
         return true;
     }
 public  boolean logout(){
-    try {
-
-        FileWriter fileWritter = new FileWriter("log.txt",true);
-        BufferedWriter out = new BufferedWriter(fileWritter);
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String time= dtf.format(now);
-
-
-
-        String query="admin  logged out on "+ time +"\n";
-        // Writing on output stream
-        out.write(query);
         System.out.println("logged out successfully");
 user=false;
         // Closing the connection
-        out.close();
-    }
-
+        Write_toLog.write("admin","acad_dean","logged out");
     // Catch block to handle the exceptions
-    catch (IOException e) {
-
-        // Display message when exception occurs
-        System.out.println("exception occurred" + e);
-        return false;
-    }
 return true;
 }
     public  boolean addbatch(String batch_id,String year,String dep_id){
@@ -271,7 +225,7 @@ String id;
 
                         }
                       id=batch_id+responseQuery;
-                        query="insert into student(id,name,batch_id,email,password,phone_number,credits,token) values('"+id+"','"+name+"','"+batch_id+"','"+id+"@iitrpr.ac.in','"+ "iitropar','"+phone_number+"',0,'');";
+                        query="insert into student(id,name,batch_id,email,password,phone_number,curr_sem,credits,token) values('"+id+"','"+name+"','"+batch_id+"','"+id+"@iitrpr.ac.in','"+ "iitropar','"+phone_number+"',0,0,'');";
                          stmt.executeUpdate(query);
 
                     } catch (SQLException e) {
@@ -353,123 +307,6 @@ String id;
             System.out.println(e);
             return false;
         }
-    }
-    public String startsem(String academic_year,String semester){
-        try {
-            ResultSet rs;
-            stmt=conn.createStatement();
-
-            rs=stmt.executeQuery("select *from semester;");
-            System.out.println("A sem is already running");
-//            System.out.println("press any key to continue");
-//            input.nextLine();
-            return "a sem is already running";
-        } catch (SQLException e) {
-
-        }
-
-        String s3="CREATE TABLE course_catalog(\n" +
-                "course_id VARCHAR(10),\n" +
-                "PRIMARY KEY(course_id),\n" +
-                "FOREIGN KEY (course_id) references course (id)\n" +
-                ");";
-        String s4="CREATE TABLE course_offering(\n" +
-                "course_id VARCHAR(10),\n" +
-                "cgpa_limit INTEGER,\n" +
-                "instructor_id VARCHAR(10),\n" +
-                "PRIMARY KEY(course_id),\n" +
-                "FOREIGN KEY (course_id) references course_catalog (course_id),\n" +
-                "FOREIGN KEY (instructor_id) references instructor (id)\n" +
-                "\n" +
-                ");";
-        String s5="CREATE TABLE semester(\n" +
-                "academic_year VARCHAR(10),\n" +
-                "semester VARCHAR(10)\n" +
-                ");";
-        String s7="CREATE TABLE registration_status(\n" +
-                "course_id VARCHAR(10),\n" +
-                "student_id VARCHAR(10),\n" +
-                "instructor_id VARCHAR(10),\n" +
-                "status VARCHAR(100),\n" +
-                "FOREIGN KEY (course_id) references course_offering (course_id),\n" +
-                "FOREIGN KEY (student_id) references student (id),\n" +
-                "FOREIGN KEY (instructor_id) references instructor (id)\n" +
-                ");";
-        String s8="update student set credits=0";
-
-
-
-        try {
-            stmt=conn.createStatement();
-            try {
-
-                stmt.execute(s3);
-                stmt.execute(s4);
-                stmt.execute(s5);
-                stmt.execute(s7);
-
-String query="insert into semester(academic_year,semester) values('"+academic_year+"','"+semester+"');";
-               stmt.executeUpdate(query);
-               return academic_year+"-"+semester+" started successfully";
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-   return "1";
-
-    }
-public static String viewsemester(){
-    String academic_year="",sem="";
-
-    try {
-        ResultSet rs;
-        stmt=conn.createStatement();
-
-        rs=stmt.executeQuery("select *from semester;");
-        while(rs.next()){
-            academic_year=rs.getString(1);
-            sem=rs.getString(2);
-        }
-        return academic_year+"-"+sem+" semester";
-    } catch (SQLException e) {
-return "no sem is running";
-    }
-
-}
-    public  boolean endsem(){
-        String academic_year="",sem="";
-        try {
-            ResultSet rs;
-            stmt=conn.createStatement();
-
-            rs=stmt.executeQuery("select *from semester;");
-            while(rs.next()){
-                academic_year=rs.getString(1);
-                sem=rs.getString(2);
-            }
-
-        } catch (SQLException e) {
-            System.out.println("No sem is running");
-
-            return false;
-        }
-        try {
-            stmt.execute("drop table semester;");
-            String s1="drop table course_catalog;";
-            String s2="drop table course_offering;";
-            String s6="drop table registration_status;";
-            stmt.execute(s6);
-            stmt.execute(s2);
-            stmt.execute(s1);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println( academic_year+"-"+sem+" ended successfully");
-       return true;
     }
 
     public boolean updatecoursecatalog(String course_id){
@@ -716,24 +553,24 @@ System.out.println(transcript);
                     if (i == 1)
                         responseQuery += "course_id ---> ";
                     if (i == 2)
-                        responseQuery += "name ---> ";
+                        responseQuery += "      name ---> ";
                     if (i ==3)
-                        responseQuery += "dep_id ---> ";
+                        responseQuery += "      dep_id ---> ";
                     if (i ==4)
-                        responseQuery += "l ---> ";
+                        responseQuery += "      l ---> ";
                     if (i == 5)
-                        responseQuery += "t ---> ";
+                        responseQuery += "      t ---> ";
                     if (i == 6)
-                        responseQuery += "p---> ";
+                        responseQuery += "      p---> ";
                     if (i == 7)
-                        responseQuery += "c---> ";
+                        responseQuery += "      c---> ";
 
                     String columnValue = rs.getString(i);
 
                     responseQuery += columnValue+" ";
                     // System.out.print(columnValue + " " + rsmd.getColumnName(i));
                 }
-                responseQuery+="\n";
+                responseQuery+="\n\n";
             }
             System.out.println(responseQuery);
 

@@ -41,71 +41,71 @@ instructor x=new instructor();
     @Test
     void addCourse() {
         admin y=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertFalse(x.addCourse("CS301","3"));
         }
         else{
-            y.endsem();
+            Semester_management.endsem();
         }
-        y.startsem("2030","winter");
+        Semester_management.startsem("2030","winter");
         y.updatecoursecatalog("CS301");
         assertTrue(x.addCourse("CS301","3"));
         instructor z=new instructor();
         assertFalse(z.addCourse("CS301","3"));
         assertTrue(x.deleteCourse("CS301"));
-        y.endsem();
+        Semester_management.endsem();
     }
 
     @Test
     void offeredCourses() {
         admin y=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
               assertFalse(x.offeredCourses());
         }
         else{
-             y.endsem();
+             Semester_management.endsem();
         }
-        y.startsem("2030","winter");
+        Semester_management.startsem("2030","winter");
         y.updatecoursecatalog("CS301");
         assertTrue(x.offeredCourses());
-        y.endsem();
+        Semester_management.endsem();
     }
 
     @Test
     void mycourses() {
         admin y=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertEquals(x.mycourses(),"error");
         }
         else{
             // when user has no offered courses
-           y.endsem();
+           Semester_management.endsem();
         }
-y.startsem("2030","winter");
+Semester_management.startsem("2030","winter");
         y.updatecoursecatalog("DM111");
         assertEquals(x.mycourses(),"you have no offered courses");
         assertTrue(x.addCourse("DM111","3"));
         assertNotEquals(x.mycourses(),"you have no offered courses");
         assertTrue(x.deleteCourse("DM111"));
-y.endsem();
+Semester_management.endsem();
     }
 
     @Test
     void deleteCourse() {
         admin y=new admin();
 
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertFalse(x.deleteCourse("DM111"));
         }
         else{
-            y.endsem();
+            Semester_management.endsem();
 
         }
-y.startsem("2030","monsoon");
+Semester_management.startsem("2030","monsoon");
         y.updatecoursecatalog("DM111");
         assertTrue(x.addCourse("DM111","3"));
         assertTrue(x.deleteCourse("DM111"));
-        y.endsem();
+        Semester_management.endsem();
     }
 
     @Test
@@ -125,13 +125,13 @@ y.startsem("2030","monsoon");
     void enrollmentRequests() {
         admin y=new admin();
 
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertEquals(x.enrollmentRequests(),"error");
         }
         else{
-           y.endsem();
+           Semester_management.endsem();
             }
-        y.startsem("2030","winter");
+        Semester_management.startsem("2030","winter");
         y.updatecoursecatalog("DM111");
         x.addCourse("DM111","3");
         assertEquals(x.enrollmentRequests(),"no enrollment requests yet");
@@ -141,21 +141,21 @@ y.startsem("2030","monsoon");
         assertNotEquals(x.enrollmentRequests(),"no enrollment requests yet");
         assertTrue(z.logout());
         assertTrue(x.deleteCourse("DM111"));
-        y.endsem();
+        Semester_management.endsem();
     }
 
     @Test
     void acceptorreject(){
         admin y=new admin();
 
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertFalse(x.approveordissaprove("DM111","2020csb2","1"));
             assertFalse(x.approveordissaprove("DM111","2020csb2","2"));
         }
         else{
-            y.endsem();
+            Semester_management.endsem();
         }
-        y.startsem("2030","winter");
+        Semester_management.startsem("2030","winter");
         y.updatecoursecatalog("DM111");
         x.addCourse("DM111","3");
         student z=new student();
@@ -165,21 +165,21 @@ y.startsem("2030","monsoon");
         assertTrue(x.approveordissaprove("DM111","2020csb2","2"));
         assertTrue(z.logout());
         assertTrue(x.deleteCourse("DM111"));
-        y.endsem();
+        Semester_management.endsem();
     }
 
     @Test
     void submitgrades() {
         admin y=new admin();
-        if(admin.viewsemester().equals("no sem is running")){
+        if(Semester_management.viewsemester().equals("no sem is running")){
             assertFalse(x.submitgrades("grades"));
         }
         else{
 //checked all the corner cases using different input in files
-            y.endsem();
+            Semester_management.endsem();
 
         }
-        y.startsem("2020","monsoon");
+        Semester_management.startsem("2020","monsoon");
         y.updatecoursecatalog("CS301");
         x.addCourse("CS301","0");
         student a=new student();
@@ -205,7 +205,7 @@ a.logout();
 //
         assertTrue(x.submitgrades("grades"));
 
-        y.endsem();
+        Semester_management.endsem();
 
         try {
             stmt=conn.createStatement();

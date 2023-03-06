@@ -36,7 +36,7 @@ public class student implements student_academics{
                    f++;
                     user_id=rs.getString(1);
                     batch_id=rs.getString(3);
-                    credits=rs.getInt(7);
+                    credits=rs.getInt(8);
                 }
 
                 if( f==0){
@@ -47,31 +47,7 @@ public class student implements student_academics{
                     query="update student set token="+token+" where id='"+user_id+"';";
                     stmt.executeUpdate(query);
                     System.out.println("logged in successfully");
-
-                    try {
-
-                        // Open given file in append mode by creating an
-                        // object of BufferedWriter class
-                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                        LocalDateTime now = LocalDateTime.now();
-                        String time= dtf.format(now);
-                        BufferedWriter out = new BufferedWriter(
-                                new FileWriter("log.txt", true));
-query="student "+user_id+" logged in on "+ time +"\n";
-                        // Writing on output stream
-                        out.write(query);
-                        // Closing the connection
-                        out.close();
-                    }
-
-                    // Catch block to handle the exceptions
-                    catch (IOException e) {
-
-                        // Display message when exception occurs
-                        System.out.println("exception occurred" + e);
-                        return false;
-                    }
-
+                    Write_toLog.write("student",user_id,"logged in");
                 }
 
             } catch (SQLException e) {
@@ -90,29 +66,8 @@ query="student "+user_id+" logged in on "+ time +"\n";
             stmt= conn.createStatement();
             stmt.executeUpdate(query);
 
-            try {
+            Write_toLog.write("student",user_id,"logged out");
 
-                // Open given file in append mode by creating an
-                // object of BufferedWriter class
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                LocalDateTime now = LocalDateTime.now();
-                String time= dtf.format(now);
-                BufferedWriter out = new BufferedWriter(
-                        new FileWriter("log.txt", true));
-                query="student "+user_id+" logged out on "+ time +"\n";
-                // Writing on output stream
-                out.write(query);
-                // Closing the connection
-                out.close();
-            }
-
-            // Catch block to handle the exceptions
-            catch (IOException e) {
-
-                // Display message when exception occurs
-                System.out.println("exception occurred" + e);
-                return false;
-            }
 
         } catch (SQLException e) {
 //            throw new RuntimeException(e);
@@ -151,8 +106,11 @@ query="student "+user_id+" logged in on "+ time +"\n";
                     if (i == 6)
                         responseQuery += "      phone_number ---> ";
                     if (i == 7)
+                        responseQuery += "      curr_sem ---> ";
+                    if (i == 8)
                         responseQuery += "      credits ---> ";
-                     if(i==8)continue;
+
+                    if(i==9)continue;
                         String columnValue = rs.getString(i);
                         responseQuery += columnValue+" ";
 
