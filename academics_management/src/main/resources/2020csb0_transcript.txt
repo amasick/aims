@@ -1,2 +1,2 @@
-course_name ---> Algorithms       course_id ---> CS302       credits_earned ---> 3       grade ---> A       instructor_id ---> HS0       academic_year ---> 2019       semester ---> monsoon 
 course_name ---> dummy       course_id ---> DM111       credits_earned ---> 3       grade ---> A       instructor_id ---> HS0       academic_year ---> 2019       semester ---> winter 
+course_name ---> Algorithms       course_id ---> CS302       credits_earned ---> 3       grade ---> A       instructor_id ---> HS0       academic_year ---> 2019       semester ---> monsoon 

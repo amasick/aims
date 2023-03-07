@@ -21,7 +21,7 @@ public class instructor implements instructor_academics{
     public static String user_id="";
     public static String token="'logged in'";
 
-    public static boolean user=false;
+      public static boolean user=false;
     public boolean login(String email,String password){
 
 
@@ -148,7 +148,10 @@ return true;
 
     public boolean addCourse(String course_id,String cgpa_limit){
 
-
+        if(Semester_management.is_instructor_window()==0){
+            System.out.println("you cannot add courses as window is closed");
+            return false;
+        }
 
             try {
                 stmt= conn.createStatement();
@@ -285,6 +288,10 @@ public String mycourses(){
 }
     public boolean deleteCourse(String course_id)
     {
+        if(Semester_management.is_instructor_window()==0){
+            System.out.println("you cannot drop courses as window is closed");
+            return false;
+        }
             String query="delete from course_offering where course_id='"+course_id+"' and instructor_id='"+user_id+"';";
             try {
                 stmt=conn.createStatement();

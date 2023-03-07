@@ -114,7 +114,9 @@ FOREIGN KEY (course_id) references course (id)
 
 CREATE TABLE semester(
 academic_year VARCHAR(10),
-semester VARCHAR(10)
+semester VARCHAR(10),
+student_window int,
+instructor_window int
 );
 
 CREATE TABLE transcript(

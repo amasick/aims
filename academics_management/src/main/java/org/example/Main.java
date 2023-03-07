@@ -17,17 +17,16 @@ public class Main {
             Scanner input = new Scanner(System.in);
             String c = "";
             int fs = 0, fi = 0;
-            student stu = new student();
-            instructor ins = new instructor();
+
             String query = "select * from student where token='logged in';";
             try {
                 stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
                 while (rs.next()) {
-                    stu.user = true;
-                    stu.user_id = rs.getString(1);
-                    stu.batch_id = rs.getString(3);
-                    stu.credits = rs.getInt(7);
+                    student.user = true;
+                    student.user_id = rs.getString(1);
+                    student.batch_id = rs.getString(3);
+                    student.credits = rs.getInt(7);
                     fs++;
                     c = "1";
                 }
@@ -40,8 +39,8 @@ public class Main {
                     stmt = conn.createStatement();
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next()) {
-                        ins.user = true;
-                        ins.user_id = rs.getString(1);
+                        instructor.user = true;
+                        instructor.user_id = rs.getString(1);
                         fi++;
                         c = "2";
                     }

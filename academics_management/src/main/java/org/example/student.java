@@ -14,13 +14,13 @@ public class student implements student_academics{
      Connection conn = Connect.ConnectDB();
      Statement stmt = null;
      Scanner input = new Scanner(System.in);
-    public  String user_id="";
+    static public  String user_id="";
 
     public  String token="'logged in'";
 
-    public  boolean user=false;
-    public  String batch_id="";
- int credits=0;
+   static  public  boolean user=false;
+    static public  String batch_id="";
+ static int credits=0;
     public boolean login(String email,String password){
 
 
@@ -148,7 +148,10 @@ return true;
     }
     public boolean addCourse(String course_id){
 
-
+if(Semester_management.is_student_window()==0){
+    System.out.println("you cannot add courses as window is closed");
+    return false;
+}
             try {
                 stmt= conn.createStatement();
                 String query="select * from course_offering where course_id='"+course_id+"';";
@@ -331,6 +334,10 @@ if(flag==0){
     }
     public boolean deleteCourse(String course_id)
     {
+        if(Semester_management.is_student_window()==0){
+            System.out.println("you cannot drop courses as window is closed");
+            return false;
+        }
             String query="delete from registration_status where course_id='"+course_id+"' and student_id='"+user_id+"';";
             try {
                 stmt=conn.createStatement();

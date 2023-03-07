@@ -10,8 +10,6 @@ public class Semester_management {
     static String year;
     static Connection conn = Connect.ConnectDB();
     static Statement stmt = null;
-    static boolean add_drop_instructor=false;
-    static boolean add_drop_student=false;
     public static String startsem(String academic_year,String semester){
         try {
             ResultSet rs;
@@ -42,7 +40,9 @@ public class Semester_management {
                 ");";
         String s5="CREATE TABLE semester(\n" +
                 "academic_year VARCHAR(10),\n" +
-                "semester VARCHAR(10)\n" +
+                "semester VARCHAR(10),\n" +
+                "student_window int,\n" +
+                "instructor_window int\n" +
                 ");";
         String s7="CREATE TABLE registration_status(\n" +
                 "course_id VARCHAR(10),\n" +
@@ -66,7 +66,7 @@ String s9="update student set curr_sem=curr_sem+1;";
                 stmt.execute(s5);
                 stmt.execute(s7);
 stmt.executeUpdate(s9);
-                String query="insert into semester(academic_year,semester) values('"+academic_year+"','"+semester+"');";
+                String query="insert into semester(academic_year,semester,student_window,instructor_window) values('"+academic_year+"','"+semester+"',1,1);";
                 stmt.executeUpdate(query);
                 sem=semester;
                 year=academic_year;
@@ -139,7 +139,14 @@ stmt.executeUpdate(s9);
             System.out.println("no sem is running");
             return false;
         }
-        add_drop_instructor=true;
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("update semester set instructor_window=1;");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
         return true;
     }
     public static boolean closewindowforinstructor(){
@@ -147,8 +154,15 @@ stmt.executeUpdate(s9);
             System.out.println("no sem is running");
             return false;
         }
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("update semester set instructor_window=0;");
 
-         add_drop_instructor=false;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
+
          return true;
     }
 
@@ -157,8 +171,15 @@ stmt.executeUpdate(s9);
             System.out.println("no sem is running");
             return false;
         }
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("update semester set instructor_window=1;");
 
-        add_drop_student=true;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
+
         return true;
     }
     public static boolean closewindowforstudent(){
@@ -166,10 +187,54 @@ stmt.executeUpdate(s9);
             System.out.println("no sem is running");
             return false;
         }
-//        if(Semester_management.viewsemester().equals("no sem is running")) return false;
+        try {
+            stmt=conn.createStatement();
+            stmt.executeUpdate("update semester set instructor_window=0;");
 
-        add_drop_student=false;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
+
         return true;
+    }
+
+    public static int is_student_window(){
+        if(Semester_management.viewsemester().equals("no sem is running")){
+            System.out.println("no sem is running");
+            return 0;
+        }
+        int f=0;
+
+        try {
+            ResultSet rs;
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery("select * from semester");
+      while(rs.next())f=rs.getInt(3);
+        } catch (SQLException e) {
+            System.out.println("No sem is running");
+            return 0;
+        }
+        return f;
+    }
+
+    public static int is_instructor_window(){
+        if(Semester_management.viewsemester().equals("no sem is running")){
+            System.out.println("no sem is running");
+            return 0;
+        }
+        int f=0;
+
+        try {
+            ResultSet rs;
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery("select * from semester");
+            while(rs.next())f=rs.getInt(4);
+        } catch (SQLException e) {
+            System.out.println("No sem is running");
+            return 0;
+        }
+        return f;
     }
 
 }

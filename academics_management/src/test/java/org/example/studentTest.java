@@ -66,6 +66,7 @@ class studentTest {
             Semester_management.endsem();
         }
         Semester_management.startsem("2020","monsoon");
+        Semester_management.openwindowforstudent();
         z.updatecoursecatalog("DM111");
         y.login("HS0@iitrpr.ac.in","1234");
         y.addCourse("DM111","5");
@@ -99,6 +100,7 @@ class studentTest {
             Semester_management.endsem();
         }
         Semester_management.startsem("2020","monsoon");
+
         List<String> data=new ArrayList<String>();
         data.add("DM111");
         z.addcourse("DM112","dummy2","CS","3","3","3","3",data);
@@ -114,7 +116,11 @@ class studentTest {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        Semester_management.closewindowforstudent();
         assertFalse(stu.addCourse("DM112"));
+        Semester_management.openwindowforstudent();
+        assertFalse(stu.addCourse("DM112"));
+
         Semester_management.endsem();
         z.deletecourse("DM112");
         y.logout();
@@ -192,6 +198,7 @@ else{
 
     @Test
     void deleteCourse() {
+
         if(Semester_management.viewsemester().equals("no sem is running")){
             assertFalse(stu.deleteCourse("DM111"));
         }

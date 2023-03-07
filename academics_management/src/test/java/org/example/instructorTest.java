@@ -49,6 +49,9 @@ instructor x=new instructor();
         }
         Semester_management.startsem("2030","winter");
         y.updatecoursecatalog("CS301");
+        Semester_management.closewindowforinstructor();
+        assertFalse(x.addCourse("CS301","3"));
+        Semester_management.openwindowforinstructor();
         assertTrue(x.addCourse("CS301","3"));
         instructor z=new instructor();
         assertFalse(z.addCourse("CS301","3"));
